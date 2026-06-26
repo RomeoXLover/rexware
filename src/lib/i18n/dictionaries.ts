@@ -39,7 +39,7 @@ const en: Dict = {
   "pay.warnPlugin":
     "Send the exact amount shown. Keep this open until the payment confirms — your plugin unlocks automatically once the transaction is seen on-chain.",
   "pay.warnPurchase":
-    "Send the exact amount shown. Do not close this page until the payment is confirmed. Funds will be forwarded directly to the rexware wallet — your subscription activates automatically.",
+    "Send the exact amount shown. Do not close this page until the payment is confirmed. Funds will be forwarded directly to the skyutils wallet — your subscription activates automatically.",
   "pay.trackExplorer": "Track on blockchain explorer",
   "pay.cancelInvoice": "Cancel invoice",
   "pay.cancelHint": "Only possible while payment has not been sent yet.",
@@ -230,7 +230,7 @@ const en: Dict = {
   // Landing — hero
   "home.badge": "Now Live — v1.4",
   "home.hero.line1": "Stop beaming manually.",
-  "home.hero.typed1": "Let rexware do it.",
+  "home.hero.typed1": "Let skyutils do it.",
   "home.hero.typed2": "Deploy in seconds.",
   "home.hero.typed3": "Scale infinitely.",
   "home.hero.sub":
@@ -321,12 +321,12 @@ const en: Dict = {
   "home.faq.kicker": "FAQ",
   "home.faq.title": "Frequently asked questions.",
   "home.faq.sub": "Everything you need to know before getting started.",
-  "home.faq.q1": "What exactly is rexware?",
+  "home.faq.q1": "What exactly is skyutils?",
   "home.faq.a1":
-    "rexware is a platform that runs Minecraft bots designed to passively beam accounts. You manage your entire operation — credentials, proxies, behaviors, logs — from a single dashboard.",
+    "skyutils is a platform that runs Minecraft bots designed to passively beam accounts. You manage your entire operation — credentials, proxies, behaviors, logs — from a single dashboard.",
   "home.faq.q2": "Is it safe? Will my accounts get banned?",
   "home.faq.a2":
-    "Every bot uses rotating proxies, humanlike movement patterns and unique fingerprints per account. While no automation is ever 100% risk-free, rexware is engineered to stay below detection thresholds on major servers.",
+    "Every bot uses rotating proxies, humanlike movement patterns and unique fingerprints per account. While no automation is ever 100% risk-free, skyutils is engineered to stay below detection thresholds on major servers.",
   "home.faq.q3": "How do I sign in?",
   "home.faq.a3":
     "Access is handled exclusively through Discord OAuth. No passwords, no email lists, no friction.",
@@ -374,7 +374,7 @@ const en: Dict = {
   "dash.botsHoursToday": "{h}h used today",
 
   // Login dialog
-  "login.title": "Welcome to rexware",
+  "login.title": "Welcome to skyutils",
   "login.subtitle":
     "Sign in to access your dashboard, projects and team workspace.",
   "login.discord": "Continue with Discord",
@@ -389,19 +389,19 @@ const en: Dict = {
 
   // ToS dialog
   "tos.title": "Terms of Service",
-  "tos.subtitle": "Please read carefully before using rexware.",
+  "tos.subtitle": "Please read carefully before using skyutils.",
   "tos.updated": "Last updated: June 9, 2026",
   "tos.s1.title": "1. Acceptance of Terms",
   "tos.s1.p1":
-    "By accessing or using rexware Services, you agree to be bound by these Terms. If you disagree, you may not access the Service.",
+    "By accessing or using skyutils Services, you agree to be bound by these Terms. If you disagree, you may not access the Service.",
   "tos.s1.p2":
-    "rexware may update these Terms at any time. Continued use constitutes acceptance.",
+    "skyutils may update these Terms at any time. Continued use constitutes acceptance.",
   "tos.s2.title": "2. Eligibility",
   "tos.s2.p1":
     "You must be at least 18 years old to use our tool as you cant manage cryptos if you are not.",
   "tos.s3.title": "3. Service Description",
   "tos.s3.p1":
-    "rexware provides a platform to deploy and manage automated Minecraft bots. rexware assumes no responsibility for any illegal activities committed in connection with the service.",
+    "skyutils provides a platform to deploy and manage automated Minecraft bots. skyutils assumes no responsibility for any illegal activities committed in connection with the service.",
   "tos.s4.title": "4. User Accounts",
   "tos.s4.p1":
     "Access is via Discord OAuth. You are responsible for your Discord account security and all activities under your account.",
@@ -421,10 +421,10 @@ const en: Dict = {
     "We may suspend or terminate your account for any breach. Upon termination, your right to use the Service ends immediately.",
   "tos.s8.title": "8. Disclaimer of Warranties",
   "tos.s8.p1":
-    'The Service is provided "AS IS" without warranties. rexware does not guarantee uninterrupted or error-free operation. You assume all risks of account bans.',
+    'The Service is provided "AS IS" without warranties. skyutils does not guarantee uninterrupted or error-free operation. You assume all risks of account bans.',
   "tos.s9.title": "9. Limitation of Liability",
   "tos.s9.p1":
-    "To the maximum extent permitted by law, rexware shall not be liable for indirect, incidental, or consequential damages. Total liability does not exceed amounts paid by you in the last 12 months.",
+    "To the maximum extent permitted by law, skyutils shall not be liable for indirect, incidental, or consequential damages. Total liability does not exceed amounts paid by you in the last 12 months.",
   "tos.ack":
     'By clicking "Accept", you acknowledge that you have read, understood, and agree to be bound by these Terms.',
   "tos.decline": "Decline",
@@ -432,14 +432,14 @@ const en: Dict = {
   // Blocked popup
   "blocked.title": "Terms Required",
   "blocked.body":
-    "You must accept the Terms of Service to use rexware. Without acceptance, you cannot access the site.",
+    "You must accept the Terms of Service to use skyutils. Without acceptance, you cannot access the site.",
   "blocked.leave": "Leave Site",
   "blocked.accept": "Accept Terms",
 
   // Banned dialog
   "banned.title": "Account Suspended",
   "banned.body":
-    "Your account has been suspended and cannot access rexware. If you believe this is a mistake, please contact support on Discord.",
+    "Your account has been suspended and cannot access skyutils. If you believe this is a mistake, please contact support on Discord.",
 
   // Auth error dialog
   "authErr.oauth_failed.title": "Sign-in failed",
@@ -456,10 +456,10 @@ const en: Dict = {
     "You declined the Discord authorization. You'll need to approve access to continue.",
   "authErr.discord_invalid_client.title": "Configuration error",
   "authErr.discord_invalid_client.message":
-    "The RexWare Discord app is not correctly configured. Please contact support.",
+    "The SkyUtils Discord app is not correctly configured. Please contact support.",
   "authErr.discord_forbidden.title": "Access blocked",
   "authErr.discord_forbidden.message":
-    "The RexWare app was blocked from accessing Discord. Please contact support.",
+    "The SkyUtils app was blocked from accessing Discord. Please contact support.",
   "authErr.discord_bad_request.title": "Invalid request",
   "authErr.discord_bad_request.message":
     "The Discord sign-in request was malformed. Please try again.",
@@ -556,7 +556,7 @@ const en: Dict = {
   "bots.deployedCount": "{count} / {max} deployed",
   "bots.deploy": "Deploy Bot",
   "bots.guide": "Guide",
-  "bots.guideTip": "New to rexware? The step-by-step guide walks you through it.",
+  "bots.guideTip": "New to skyutils? The step-by-step guide walks you through it.",
   "bots.readGuide": "Open guide",
   "bots.needHelp": "Need a hand?",
   "bots.deployHelp": "How deploying works",
@@ -705,7 +705,7 @@ const en: Dict = {
   "bots.ra.custom.applied": "Applied.",
   "dash.banned.title": "Account suspended",
   "dash.banned.reasonIp":
-    "Your IP address has been banned from accessing rexware.",
+    "Your IP address has been banned from accessing skyutils.",
   "dash.banned.reasonAcct":
     "Your account has been suspended and can no longer access the dashboard.",
   "dash.banned.contact":
@@ -782,7 +782,7 @@ const en: Dict = {
   "dash.subtitle.autoReply": "Hands-off DM responder with humanized timing.",
   "dash.subtitle.tickets":
     "Need a hand? Open a ticket and our team will jump in.",
-  "dash.reviews.subtitle": "See what our community has to say about rexware.",
+  "dash.reviews.subtitle": "See what our community has to say about skyutils.",
   "dash.reviews.leaveReview": "Leave a Review",
   "dash.reviews.empty": "No reviews yet",
   "dash.reviews.emptyHint": "Be the first to share your experience on Discord!",
@@ -790,7 +790,7 @@ const en: Dict = {
   "dash.reviews.modalBody":
     "Reviews are submitted through our Discord bot. Use the command below in any server channel to start.",
   "dash.reviews.howToTitle": "How it works",
-  "dash.reviews.step1": "Open Discord and go to any server with the rexware bot",
+  "dash.reviews.step1": "Open Discord and go to any server with the skyutils bot",
   "dash.reviews.step2": "Type /review in any channel",
   "dash.reviews.step3": "Rate your experience and submit",
   "dash.reviews.commandLabel": "Review command",
@@ -1043,7 +1043,7 @@ const it: Dict = {
   "pay.warnPlugin":
     "Invia l'importo esatto mostrato. Tieni aperta questa pagina finché il pagamento non viene confermato — il plugin si sblocca automaticamente quando la transazione è vista on-chain.",
   "pay.warnPurchase":
-    "Invia l'importo esatto mostrato. Non chiudere questa pagina finché il pagamento non è confermato. I fondi saranno inoltrati direttamente al wallet rexware — il tuo abbonamento si attiva automaticamente.",
+    "Invia l'importo esatto mostrato. Non chiudere questa pagina finché il pagamento non è confermato. I fondi saranno inoltrati direttamente al wallet skyutils — il tuo abbonamento si attiva automaticamente.",
   "pay.trackExplorer": "Traccia sull'explorer blockchain",
   "pay.cancelInvoice": "Annulla fattura",
   "pay.cancelHint": "Possibile solo finché il pagamento non è stato inviato.",
@@ -1234,7 +1234,7 @@ const it: Dict = {
   "home.nav.signin": "Accedi",
   "home.badge": "Ora disponibile — v1.4",
   "home.hero.line1": "Smetti di beammare a mano.",
-  "home.hero.typed1": "Lascia fare a rexware.",
+  "home.hero.typed1": "Lascia fare a skyutils.",
   "home.hero.typed2": "Deploy in pochi secondi.",
   "home.hero.typed3": "Scala all'infinito.",
   "home.hero.sub":
@@ -1322,12 +1322,12 @@ const it: Dict = {
   "home.faq.kicker": "FAQ",
   "home.faq.title": "Domande frequenti.",
   "home.faq.sub": "Tutto ciò che devi sapere prima di iniziare.",
-  "home.faq.q1": "Cos'è esattamente rexware?",
+  "home.faq.q1": "Cos'è esattamente skyutils?",
   "home.faq.a1":
-    "rexware è una piattaforma che esegue bot Minecraft progettati per beammare passivamente gli account. Gestisci tutta la tua flotta — credenziali, proxy, comportamenti, log — da un'unica dashboard.",
+    "skyutils è una piattaforma che esegue bot Minecraft progettati per beammare passivamente gli account. Gestisci tutta la tua flotta — credenziali, proxy, comportamenti, log — da un'unica dashboard.",
   "home.faq.q2": "È sicuro? I miei account verranno bannati?",
   "home.faq.a2":
-    "Ogni bot usa proxy rotanti, schemi di movimento simili a quelli umani e impronte uniche per account. Nessuna automazione è mai sicura al 100%, ma rexware è progettato per restare sotto le soglie di rilevamento sui principali server.",
+    "Ogni bot usa proxy rotanti, schemi di movimento simili a quelli umani e impronte uniche per account. Nessuna automazione è mai sicura al 100%, ma skyutils è progettato per restare sotto le soglie di rilevamento sui principali server.",
   "home.faq.q3": "Come accedo?",
   "home.faq.a3":
     "L'accesso avviene esclusivamente tramite Discord OAuth. Niente password, niente liste email, nessun attrito.",
@@ -1345,7 +1345,7 @@ const it: Dict = {
   "home.footer.docs": "Guida",
   "home.nav.docs": "Guida",
   "home.nav.home": "Home",
-  "login.title": "Benvenuto su rexware",
+  "login.title": "Benvenuto su skyutils",
   "login.subtitle":
     "Accedi per usare la dashboard, i progetti e lo spazio di lavoro del team.",
   "login.discord": "Continua con Discord",
@@ -1358,19 +1358,19 @@ const it: Dict = {
   "login.agree.and": "e la",
   "login.agree.privacy": "Informativa sulla privacy",
   "tos.title": "Termini di Servizio",
-  "tos.subtitle": "Leggi attentamente prima di usare rexware.",
+  "tos.subtitle": "Leggi attentamente prima di usare skyutils.",
   "tos.updated": "Ultimo aggiornamento: 9 giugno 2026",
   "tos.s1.title": "1. Accettazione dei Termini",
   "tos.s1.p1":
-    "Accedendo o utilizzando i Servizi rexware, accetti di essere vincolato da questi Termini. Se non sei d'accordo, non puoi accedere al Servizio.",
+    "Accedendo o utilizzando i Servizi skyutils, accetti di essere vincolato da questi Termini. Se non sei d'accordo, non puoi accedere al Servizio.",
   "tos.s1.p2":
-    "rexware può aggiornare questi Termini in qualsiasi momento. L'uso continuato ne costituisce accettazione.",
+    "skyutils può aggiornare questi Termini in qualsiasi momento. L'uso continuato ne costituisce accettazione.",
   "tos.s2.title": "2. Idoneità",
   "tos.s2.p1":
     "Devi avere almeno 18 anni per usare il nostro strumento, poiché non puoi gestire cripto se non li hai.",
   "tos.s3.title": "3. Descrizione del Servizio",
   "tos.s3.p1":
-    "rexware fornisce una piattaforma per distribuire e gestire bot Minecraft automatizzati. rexware non si assume alcuna responsabilità per attività illegali commesse in relazione al servizio.",
+    "skyutils fornisce una piattaforma per distribuire e gestire bot Minecraft automatizzati. skyutils non si assume alcuna responsabilità per attività illegali commesse in relazione al servizio.",
   "tos.s4.title": "4. Account Utente",
   "tos.s4.p1":
     "L'accesso avviene tramite Discord OAuth. Sei responsabile della sicurezza del tuo account Discord e di tutte le attività svolte con esso.",
@@ -1390,22 +1390,22 @@ const it: Dict = {
     "Possiamo sospendere o chiudere il tuo account per qualsiasi violazione. Alla risoluzione, il tuo diritto di usare il Servizio termina immediatamente.",
   "tos.s8.title": "8. Esclusione di Garanzie",
   "tos.s8.p1":
-    'Il Servizio è fornito "COSÌ COM\'È" senza garanzie. rexware non garantisce un funzionamento ininterrotto o privo di errori. Ti assumi tutti i rischi di ban degli account.',
+    'Il Servizio è fornito "COSÌ COM\'È" senza garanzie. skyutils non garantisce un funzionamento ininterrotto o privo di errori. Ti assumi tutti i rischi di ban degli account.',
   "tos.s9.title": "9. Limitazione di Responsabilità",
   "tos.s9.p1":
-    "Nella misura massima consentita dalla legge, rexware non sarà responsabile per danni indiretti, incidentali o consequenziali. La responsabilità totale non supera gli importi pagati da te negli ultimi 12 mesi.",
+    "Nella misura massima consentita dalla legge, skyutils non sarà responsabile per danni indiretti, incidentali o consequenziali. La responsabilità totale non supera gli importi pagati da te negli ultimi 12 mesi.",
   "tos.ack":
     'Cliccando "Accetta", riconosci di aver letto, compreso e accettato di essere vincolato da questi Termini.',
   "tos.decline": "Rifiuta",
   "tos.accept": "Accetta",
   "blocked.title": "Termini richiesti",
   "blocked.body":
-    "Devi accettare i Termini di Servizio per usare rexware. Senza accettazione non puoi accedere al sito.",
+    "Devi accettare i Termini di Servizio per usare skyutils. Senza accettazione non puoi accedere al sito.",
   "blocked.leave": "Esci dal sito",
   "blocked.accept": "Accetta i termini",
   "banned.title": "Account sospeso",
   "banned.body":
-    "Il tuo account è stato sospeso e non può accedere a rexware. Se ritieni che sia un errore, contatta il supporto su Discord.",
+    "Il tuo account è stato sospeso e non può accedere a skyutils. Se ritieni che sia un errore, contatta il supporto su Discord.",
   "authErr.oauth_failed.title": "Accesso non riuscito",
   "authErr.oauth_failed.message":
     "Non siamo riusciti a completare l'accesso con Discord. Di solito è temporaneo — riprova.",
@@ -1420,10 +1420,10 @@ const it: Dict = {
     "Hai rifiutato l'autorizzazione Discord. Devi approvare l'accesso per continuare.",
   "authErr.discord_invalid_client.title": "Errore di configurazione",
   "authErr.discord_invalid_client.message":
-    "L'app Discord di RexWare non è configurata correttamente. Contatta il supporto.",
+    "L'app Discord di SkyUtils non è configurata correttamente. Contatta il supporto.",
   "authErr.discord_forbidden.title": "Accesso bloccato",
   "authErr.discord_forbidden.message":
-    "L'app RexWare è stata bloccata da Discord. Contatta il supporto.",
+    "L'app SkyUtils è stata bloccata da Discord. Contatta il supporto.",
   "authErr.discord_bad_request.title": "Richiesta non valida",
   "authErr.discord_bad_request.message":
     "La richiesta di accesso Discord non è valida. Riprova.",
@@ -1512,7 +1512,7 @@ const it: Dict = {
   "bots.deployedCount": "{count} / {max} attivi",
   "bots.deploy": "Distribuisci bot",
   "bots.guide": "Guida",
-  "bots.guideTip": "Nuovo su rexware? La guida passo passo ti accompagna.",
+  "bots.guideTip": "Nuovo su skyutils? La guida passo passo ti accompagna.",
   "bots.readGuide": "Apri guida",
   "bots.needHelp": "Ti serve aiuto?",
   "bots.deployHelp": "Come funziona il deploy",
@@ -1659,7 +1659,7 @@ const it: Dict = {
   "bots.ra.custom.applied": "Applicato.",
   "dash.banned.title": "Account sospeso",
   "dash.banned.reasonIp":
-    "Il tuo indirizzo IP è stato bannato dall'accesso a rexware.",
+    "Il tuo indirizzo IP è stato bannato dall'accesso a skyutils.",
   "dash.banned.reasonAcct":
     "Il tuo account è stato sospeso e non può più accedere alla dashboard.",
   "dash.banned.contact":
@@ -1736,7 +1736,7 @@ const it: Dict = {
     "Risponditore automatico ai DM con tempistiche umanizzate.",
   "dash.subtitle.tickets":
     "Hai bisogno di aiuto? Apri un ticket e il nostro team interverrà.",
-  "dash.reviews.subtitle": "Scopri cosa dice la nostra community su rexware.",
+  "dash.reviews.subtitle": "Scopri cosa dice la nostra community su skyutils.",
   "dash.reviews.leaveReview": "Lascia una Recensione",
   "dash.reviews.empty": "Nessuna recensione ancora",
   "dash.reviews.emptyHint": "Sii il primo a condividere la tua esperienza su Discord!",
@@ -1744,7 +1744,7 @@ const it: Dict = {
   "dash.reviews.modalBody":
     "Le recensioni vengono inviate tramite il nostro bot Discord. Usa il comando qui sotto in qualsiasi canale del server.",
   "dash.reviews.howToTitle": "Come funziona",
-  "dash.reviews.step1": "Apri Discord e vai su qualsiasi server con il bot rexware",
+  "dash.reviews.step1": "Apri Discord e vai su qualsiasi server con il bot skyutils",
   "dash.reviews.step2": "Digita /review in qualsiasi canale",
   "dash.reviews.step3": "Valuta la tua esperienza e invia",
   "dash.reviews.commandLabel": "Comando per recensione",
@@ -2003,7 +2003,7 @@ const ru: Dict = {
   "pay.warnPlugin":
     "Отправьте точную указанную сумму. Держите страницу открытой до подтверждения платежа — плагин разблокируется автоматически, как только транзакция появится в сети.",
   "pay.warnPurchase":
-    "Отправьте точную указанную сумму. Не закрывайте страницу до подтверждения платежа. Средства будут направлены прямо в ��ошелёк rexware — подписка активируется автоматически.",
+    "Отправьте точную указанную сумму. Не закрывайте страницу до подтверждения платежа. Средства будут направлены прямо в ��ошелёк skyutils — подписка активируется автоматически.",
   "pay.trackExplorer": "Отследить в обозревателе блокчейна",
   "pay.cancelInvoice": "Отменить счёт",
   "pay.cancelHint": "Возможно только пока платёж не отправлен.",
@@ -2192,7 +2192,7 @@ const ru: Dict = {
   "home.nav.signin": "Войти",
   "home.badge": "Уже доступно — v1.4",
   "home.hero.line1": "Хватит беамить вручную.",
-  "home.hero.typed1": "Пусть это сделает rexware.",
+  "home.hero.typed1": "Пусть это сделает skyutils.",
   "home.hero.typed2": "Развёртывание за секунды.",
   "home.hero.typed3": "Масштабируйся без границ.",
   "home.hero.sub":
@@ -2280,12 +2280,12 @@ const ru: Dict = {
   "home.faq.kicker": "FAQ",
   "home.faq.title": "Часто задаваемые вопросы.",
   "home.faq.sub": "Всё, что нужно знать перед началом.",
-  "home.faq.q1": "Что такое rexware?",
+  "home.faq.q1": "Что такое skyutils?",
   "home.faq.a1":
-    "rexware — это платформа, которая запускает ботов Minecraft для пассивного беаминга аккаунтов. Вы управляете в��ем флотом — данными, прокси, поведением, логами — из единой панели.",
+    "skyutils — это платформа, которая запускает ботов Minecraft для пассивного беаминга аккаунтов. Вы управляете в��ем флотом — данными, прокси, поведением, логами — из единой панели.",
   "home.faq.q2": "Это безопасно? Мои аккаунты забанят?",
   "home.faq.a2":
-    "Каждый бот использует ротационные прокси, человекоподобные паттерны движения и уникальные отпечатки для каждого аккаунта. Хотя ни одна автоматизация не бывает на 100% безопасной, rexware создан так, чтобы оставаться ниже порогов обнаружения на крупных серверах.",
+    "Каждый бот использует ротационные прокси, человекоподобные паттерны движения и уникальные отпечатки для каждого аккаунта. Хотя ни одна автоматизация не бывает на 100% безопасной, skyutils создан так, чтобы оставаться ниже порогов обнаружения на крупных серверах.",
   "home.faq.q3": "Как войти?",
   "home.faq.a3":
     "Доступ осуществляется исключительно через Discord OAuth. Без паролей, без списков email, без трения.",
@@ -2303,7 +2303,7 @@ const ru: Dict = {
   "home.footer.docs": "Документы",
   "home.nav.docs": "Документы",
   "home.nav.home": "Главная",
-  "login.title": "Добро пожаловать в rexware",
+  "login.title": "Добро пожаловать в skyutils",
   "login.subtitle":
     "Войдите, чтобы получить доступ к панели, проектам и рабочему пространству команды.",
   "login.discord": "Продолжить с Discord",
@@ -2317,19 +2317,19 @@ const ru: Dict = {
   "login.agree.privacy": "Политикой конфиденциальности",
   "tos.title": "Условия использования",
   "tos.subtitle":
-    "Пожалуйста, внимательно прочитайте перед использованием rexware.",
+    "Пожалуйста, внимательно прочитайте перед использованием skyutils.",
   "tos.updated": "Последнее обновление: 9 июня 2026 г.",
   "tos.s1.title": "1. Принятие условий",
   "tos.s1.p1":
-    "Получая доступ к Сервисам rexware или используя их, вы соглашаетесь соблюдать настоящие Условия. Если вы не согласны, вы не можете использовать Сервис.",
+    "Получая доступ к Сервисам skyutils или используя их, вы соглашаетесь соблюдать настоящие Условия. Если вы не согласны, вы не можете использовать Сервис.",
   "tos.s1.p2":
-    "rexware может обновлять эти Условия в любое время. Продолжение использования означает принятие.",
+    "skyutils может обновлять эти Условия в любое время. Продолжение использования означает принятие.",
   "tos.s2.title": "2. Право на использование",
   "tos.s2.p1":
     "Вам должно быть не менее 18 лет, чтобы использовать наш инструмент, так как иначе вы не сможете управлять криптовалютой.",
   "tos.s3.title": "3. Описание сервиса",
   "tos.s3.p1":
-    "rexware предоставляет платформу для ��азвёртывания и управления автоматизированными ботами Minecraft. rexware не несёт ответственности за любые незаконные действия, совершённые в связи с сервисом.",
+    "skyutils предоставляет платформу для ��азвёртывания и управления автоматизированными ботами Minecraft. skyutils не несёт ответственности за любые незаконные действия, совершённые в связи с сервисом.",
   "tos.s4.title": "4. Учётные записи",
   "tos.s4.p1":
     "Доступ осуществляется через Discord OAuth. Вы несёте ответственность за безопасность своего аккаунта Discord и за все действия под ним.",
@@ -2349,22 +2349,22 @@ const ru: Dict = {
     "Мы можем приостановить или закрыть ваш аккаунт за любое нарушение. После прекращения ваше право использовать Сервис немедленно прекращается.",
   "tos.s8.title": "8. Отказ от г��рантий",
   "tos.s8.p1":
-    "Сервис предоставляется «КАК ЕСТЬ» без гарантий. rexware не гарантирует бесперебойную или безошибочную работу. Вы принимаете на себя все риски бана аккаунтов.",
+    "Сервис предоставляется «КАК ЕСТЬ» без гарантий. skyutils не гарантирует бесперебойную или безошибочную работу. Вы принимаете на себя все риски бана аккаунтов.",
   "tos.s9.title": "9. Ограничение ответственности",
   "tos.s9.p1":
-    "В максимальной степени, разрешённой законом, rexware не несёт ответственности за косвенный, случайный и��и последующий ущерб. Общая ответственность не превышает суммы, уплаченной вами за последние 12 месяцев.",
+    "В максимальной степени, разрешённой законом, skyutils не несёт ответственности за косвенный, случайный и��и последующий ущерб. Общая ответственность не превышает суммы, уплаченной вами за последние 12 месяцев.",
   "tos.ack":
     "Нажимая «Принять», вы подтверждаете, что прочитали, поняли и согласны соблюдать настоящие Условия.",
   "tos.decline": "Откл��нить",
   "tos.accept": "Принять",
   "blocked.title": "Требуется согласие",
   "blocked.body":
-    "Чтобы использовать rexware, необходимо принять Условия использования. Без принятия доступ к сайту невозможен.",
+    "Чтобы использовать skyutils, необходимо принять Условия использования. Без принятия доступ к сайту невозможен.",
   "blocked.leave": "Покинуть сайт",
   "blocked.accept": "Принять условия",
   "banned.title": "Аккаунт забло��ирован",
   "banned.body":
-    "Ваш аккаунт заблокирован и не может получить доступ к rexware. Если вы считаете это ошибкой, обратитесь в поддержку в Discord.",
+    "Ваш аккаунт заблокирован и не может получить доступ к skyutils. Если вы считаете это ошибкой, обратитесь в поддержку в Discord.",
   "authErr.oauth_failed.title": "Не удалось войти",
   "authErr.oauth_failed.message":
     "Не удалось завершить вход через Discord. Обыч��о это временно — попробуйте снова.",
@@ -2379,10 +2379,10 @@ const ru: Dict = {
     "Вы отклонили авторизацию Discord. Чтобы продолжить, нужно разрешить доступ.",
   "authErr.discord_invalid_client.title": "Ошибка конфигурации",
   "authErr.discord_invalid_client.message":
-    "Приложение Discord для RexWare настроено неправильно. Обратитесь в поддержку.",
+    "Приложение Discord для SkyUtils настроено неправильно. Обратитесь в поддержку.",
   "authErr.discord_forbidden.title": "Доступ заблокирован",
   "authErr.discord_forbidden.message":
-    "Приложение RexWare заблокировано Discord. Обратитесь в поддержку.",
+    "Приложение SkyUtils заблокировано Discord. Обратитесь в поддержку.",
   "authErr.discord_bad_request.title": "Неверный запрос",
   "authErr.discord_bad_request.message":
     "Запрос авторизации Discord некорректен. Попробуйте снова.",
@@ -2471,7 +2471,7 @@ const ru: Dict = {
   "bots.deployedCount": "{count} / {max} запущено",
   "bots.deploy": "Запустить бота",
   "bots.guide": "Руководство",
-  "bots.guideTip": "Впервые в rexware? Пошаговое руководство всё подскажет.",
+  "bots.guideTip": "Впервые в skyutils? Пошаговое руководство всё подскажет.",
   "bots.readGuide": "Открыть руководство",
   "bots.needHelp": "Нужна помощь?",
   "bots.deployHelp": "Как работает запуск",
@@ -2617,7 +2617,7 @@ const ru: Dict = {
   "bots.ra.custom.fixDone": "Готово — применяю исправленные действия.",
   "bots.ra.custom.applied": "Применено.",
   "dash.banned.title": "Аккаунт заблокирован",
-  "dash.banned.reasonIp": "Ваш IP-адрес заблокирован для доступа к rexware.",
+  "dash.banned.reasonIp": "Ваш IP-адрес заблокирован для доступа к skyutils.",
   "dash.banned.reasonAcct":
     "Ваш аккаунт заблокирован и больше не имеет д��ступа к панели управления.",
   "dash.banned.contact":
@@ -2692,7 +2692,7 @@ const ru: Dict = {
     "Автоответчик на ЛС с человекоподобными задержками.",
   "dash.subtitle.tickets":
     "Нужна помощь? Откройте тикет, и наша команда подключится.",
-  "dash.reviews.subtitle": "Узнайте, что говорят о rexware в нашем сообществе.",
+  "dash.reviews.subtitle": "Узнайте, что говорят о skyutils в нашем сообществе.",
   "dash.reviews.leaveReview": "Оставить Отзыв",
   "dash.reviews.empty": "Отзывов пока нет",
   "dash.reviews.emptyHint": "Станьте первым, кто поделится своим опытом в Discord!",
@@ -2700,7 +2700,7 @@ const ru: Dict = {
   "dash.reviews.modalBody":
     "Отзывы отправляются через нашего Discord-бота. Используйте команду ниже в любом канале сервера.",
   "dash.reviews.howToTitle": "Как это работает",
-  "dash.reviews.step1": "Откройте Discord и перейдите на любой сервер с ботом rexware",
+  "dash.reviews.step1": "Откройте Discord и перейдите на любой сервер с ботом skyutils",
   "dash.reviews.step2": "Введите /review в любом канале",
   "dash.reviews.step3": "Оцените ваш опыт и отправьте",
   "dash.reviews.commandLabel": "Команда для отзыва",

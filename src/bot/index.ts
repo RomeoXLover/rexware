@@ -1,5 +1,5 @@
 /**
- * RexWare Discord Bot — main entry point.
+ * SkyUtils Discord Bot — main entry point.
  *
  * Run with:
  *   npx tsx src/bot/index.ts
@@ -16,7 +16,7 @@
  *   DISCORD_TICKET_ARCHIVE_PREFIX — prefix for archived ticket channel names (default: "closed-")
  *   DISCORD_TICKET_ARCHIVE_DELAY_MS — ms delay before archiving a closed ticket (default: 5000)
  *   DISCORD_WELCOME_CHANNEL_ID  — channel for public welcome messages
- *   DATABASE_PATH               — path to SQLite db (default: ./data/rexware.db)
+ *   DATABASE_PATH               — path to SQLite db (default: ./data/skyutils.db)
  */
 
 import "dotenv/config";
@@ -175,7 +175,7 @@ const client = new Client({
 // Called on startup and then every 6h to handle Discord webhook rotation.
 // ---------------------------------------------------------------------------
 
-const _GLOBAL_CHAT_WEBHOOK_BOT_USER_ID = "rexware-bot"; // sentinel user_id in user_webhooks
+const _GLOBAL_CHAT_WEBHOOK_BOT_USER_ID = "skyutils-bot"; // sentinel user_id in user_webhooks
 
 async function _ensureGlobalChatWebhook(client: Client) {
   const chatConfig = getGlobalChatConfig();
@@ -199,7 +199,7 @@ async function _ensureGlobalChatWebhook(client: Client) {
     let webhook;
     try {
       webhook = await (channel as { createWebhook?: (o: object) => Promise<unknown> }).createWebhook!({
-        name: "RexWare Global",
+        name: "SkyUtils Global",
         avatar: client.user?.displayAvatarURL({ size: 128 }),
       });
     } catch (createErr: unknown) {
@@ -209,7 +209,7 @@ async function _ensureGlobalChatWebhook(client: Client) {
         const hooks = await (channel as { fetchWebhooks?: () => Promise<unknown> }).fetchWebhooks?.().catch(() => null);
         if (hooks) {
           const hookMap = hooks as Map<string, { id: string; name?: string; url?: string }>;
-          webhook = [...hookMap.values()].find((h) => h.name === "RexWare Global") ?? [...hookMap.values()][0];
+          webhook = [...hookMap.values()].find((h) => h.name === "SkyUtils Global") ?? [...hookMap.values()][0];
         }
       }
       if (!webhook) throw createErr;
@@ -269,7 +269,7 @@ client.once(Events.ClientReady, async (c) => {
   }, 5000);
   console.log("[bot] DM queue poller started (every 5s).");
 
-  // RexWare AI: /ai toggle, @mention replies, and DM chat
+  // SkyUtils AI: /ai toggle, @mention replies, and DM chat
   await setupMainBot(client);
 
   // Watchdog: stop bots that have exceeded their plan's daily bot-hours limit.
@@ -750,7 +750,7 @@ client.on(Events.MessageCreate, async (message: Message) => {
     try {
       const appUrl = process.env.APP_BASE_URL;
       if (appUrl) {
-        // Detect if this message was posted via a webhook (e.g. our own RexWare Global
+        // Detect if this message was posted via a webhook (e.g. our own SkyUtils Global
         // webhook or a user's personal webhook). Webhook messages from our own bot would
         // otherwise cause a loop: web → webhook → bot → web.
         if (message.webhookId) {

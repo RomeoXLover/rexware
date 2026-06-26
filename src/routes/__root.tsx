@@ -107,9 +107,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=5" },
-      { title: "RexWare" },
-      { name: "description", content: "RexWare Auto-Beaming Systems" },
-      { name: "author", content: "RexWare Team" },
+      { title: "SkyUtils" },
+      { name: "description", content: "SkyUtils Auto-Beaming Systems" },
+      { name: "author", content: "SkyUtils Team" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

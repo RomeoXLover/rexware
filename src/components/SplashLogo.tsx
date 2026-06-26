@@ -71,7 +71,7 @@ export function SplashLogo() {
             }}
           />
           <div className="grid h-[72px] w-[72px] place-items-center rounded-2xl border border-white/10 bg-white/[0.05] backdrop-blur-xl shadow-[0_4px_32px_oklch(0_0_0/0.6)]">
-            <img src="/logo.png" alt="RexWare" className="h-10 w-10" />
+            <img src="/logo.png" alt="SkyUtils" className="h-10 w-10" />
           </div>
         </div>
 

@@ -22,7 +22,7 @@ export const COMMANDS = [
   {
     name: "review",
     type: ApplicationCommandType.ChatInput,
-    description: "Submit a review for RexWare.",
+    description: "Submit a review for SkyUtils.",
     options: [
       {
         name: "stars",
@@ -53,7 +53,7 @@ export const COMMANDS = [
   {
     name: "info",
     type: ApplicationCommandType.ChatInput,
-    description: "View your RexWare account info, plan, and subscription status.",
+    description: "View your SkyUtils account info, plan, and subscription status.",
   },
 
   // ── /ticket ───────────────────────────────────────────────────────────────
@@ -129,21 +129,21 @@ export const COMMANDS = [
   {
     name: "help",
     type: ApplicationCommandType.ChatInput,
-    description: "Show all available RexWare bot commands.",
+    description: "Show all available SkyUtils bot commands.",
   },
 
   // ── /faq ──────────────────────────────────────────────────────────────────
   {
     name: "faq",
     type: ApplicationCommandType.ChatInput,
-    description: "Frequently asked questions about RexWare.",
+    description: "Frequently asked questions about SkyUtils.",
   },
 
   // ── /tos ──────────────────────────────────────────────────────────────────
   {
     name: "tos",
     type: ApplicationCommandType.ChatInput,
-    description: "View the RexWare Terms of Service.",
+    description: "View the SkyUtils Terms of Service.",
   },
 
   // ── /welcome ──────────────────────────────────────────────────────────────
@@ -167,7 +167,7 @@ export const COMMANDS = [
           {
             name: "title",
             type: ApplicationCommandOptionType.String,
-            description: "Custom title for the panel (default: Welcome to RexWare).",
+            description: "Custom title for the panel (default: Welcome to SkyUtils).",
             required: false,
             max_length: 100,
           },
@@ -219,7 +219,7 @@ export const COMMANDS = [
           {
             name: "ban",
             type: ApplicationCommandOptionType.Subcommand,
-            description: "Ban a user from RexWare.",
+            description: "Ban a user from SkyUtils.",
             options: [
               {
                 name: "user",
@@ -239,7 +239,7 @@ export const COMMANDS = [
           {
             name: "unban",
             type: ApplicationCommandOptionType.Subcommand,
-            description: "Unban a user from RexWare.",
+            description: "Unban a user from SkyUtils.",
             options: [
               {
                 name: "user",
@@ -647,7 +647,7 @@ export const COMMANDS = [
       {
         name: "stats",
         type: ApplicationCommandOptionType.Subcommand,
-        description: "Show RexWare platform statistics.",
+        description: "Show SkyUtils platform statistics.",
       },
 
       // Ticket panel
@@ -938,7 +938,7 @@ export const COMMANDS = [
           {
             name: "ban",
             type: ApplicationCommandOptionType.Subcommand,
-            description: "Ban a user from RexWare.",
+            description: "Ban a user from SkyUtils.",
             options: [
               {
                 name: "user",
@@ -958,7 +958,7 @@ export const COMMANDS = [
           {
             name: "unban",
             type: ApplicationCommandOptionType.Subcommand,
-            description: "Unban a user from RexWare.",
+            description: "Unban a user from SkyUtils.",
             options: [
               {
                 name: "user",
@@ -1001,7 +1001,7 @@ export const COMMANDS = [
       {
         name: "stats",
         type: ApplicationCommandOptionType.Subcommand,
-        description: "Show RexWare platform statistics.",
+        description: "Show SkyUtils platform statistics.",
       },
 
       // Audit log

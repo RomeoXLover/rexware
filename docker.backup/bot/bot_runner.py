@@ -1067,7 +1067,7 @@ async def notify_webhook(cfg, title, description, color=0xED4245):
             "title": title[:256],
             "description": description[:2048],
             "color": color,
-            "footer": {"text": f"RexWare · run {RUN_ID}"},
+            "footer": {"text": f"SkyUtils · run {RUN_ID}"},
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }]
     })
@@ -1095,7 +1095,7 @@ async def notify_admin_webhook(kind: str, title: str, description: str, color: i
         "title": title[:256],
         "description": description[:2048],
         "color": color,
-        "footer": {"text": "RexWare System"},
+        "footer": {"text": "SkyUtils System"},
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
     if fields:

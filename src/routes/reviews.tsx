@@ -6,11 +6,11 @@ import { usePreferences, useT } from "@/lib/preferences";
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Reviews — RexWare" },
+      { title: "Reviews — SkyUtils" },
       {
         name: "description",
         content:
-          "See what operators are saying about RexWare. Real reviews from real users.",
+          "See what operators are saying about SkyUtils. Real reviews from real users.",
       },
     ],
   }),
@@ -70,7 +70,7 @@ function ReviewsPage() {
             className="flex items-center gap-2 font-semibold tracking-tight group"
           >
             <img src="/logo.png" alt="Logo" className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
-            <span>RexWare</span>
+            <span>SkyUtils</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -145,7 +145,7 @@ function ReviewsPage() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-6">
-            Ready to try RexWare for yourself?
+            Ready to try SkyUtils for yourself?
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button size="lg" className="rounded-full" asChild>

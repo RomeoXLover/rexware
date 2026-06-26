@@ -1,12 +1,12 @@
 /**
- * RexWare AI handlers — /ai toggle + @mention + DM message handling.
+ * SkyUtils AI handlers — /ai toggle + @mention + DM message handling.
  *
  * Call setupMainBot(client) in the ready handler of src/bot/index.ts.
  *
  * Features:
  *   /ai           — Toggles AI replies on/off for the user (DMs + @mentions).
  *                   The toggle is persisted in the DB, so it survives restarts.
- *   @RexWare ... — AI replies in server channels (only if user has toggled AI on)
+ *   @SkyUtils ... — AI replies in server channels (only if user has toggled AI on)
  *   DMs           — AI replies in DMs (only if user has toggled AI on)
  *   Moderation    — When an admin chats with the AI in a server, it can perform
  *                   moderation actions (mute, unmute, kick, ban, warn, purge)
@@ -113,7 +113,7 @@ function buildModExecutor(message: Message, client: Client): ModExecutor {
     const actorRow = await usersRepo.byDiscordId(message.author.id);
     const actorId = actorRow?.id ?? message.author.id;
     const targetId = String(args.user_id ?? "").trim();
-    const reason = (typeof args.reason === "string" && args.reason.trim()) || "Via RexWare AI";
+    const reason = (typeof args.reason === "string" && args.reason.trim()) || "Via SkyUtils AI";
 
     switch (name) {
       case "timeout_member": {
@@ -165,7 +165,7 @@ function buildModExecutor(message: Message, client: Client): ModExecutor {
         } catch {
           return "Failed to ban — check the bot's permissions and role hierarchy.";
         }
-        // Also suspend the RexWare account if one exists.
+        // Also suspend the SkyUtils account if one exists.
         const targetUser = await usersRepo.byDiscordId(targetId);
         if (targetUser) {
           await usersRepo.setBanned(targetUser.id, true).catch(() => null);

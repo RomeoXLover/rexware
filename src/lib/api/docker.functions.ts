@@ -17,7 +17,7 @@ import {
 
 // ---------------------------------------------------------------------------
 // Admin-only Docker management. Surfaces every container that belongs to this
-// project (label rexware.project), enriched with the owning user + run, and
+// project (label skyutils.project), enriched with the owning user + run, and
 // lets an admin fully control each one.
 // ---------------------------------------------------------------------------
 

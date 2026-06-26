@@ -36,8 +36,8 @@ const SESSION_COOKIE = "session";
 const STATE_COOKIE = "oauth_state";
 const SESSION_MAX_AGE = 60 * 60 * 24 * 7; // 7 days, in seconds
 
-const JWT_ISSUER = "rexware";
-const JWT_AUDIENCE = "rexware-dashboard";
+const JWT_ISSUER = "skyutils";
+const JWT_AUDIENCE = "skyutils-dashboard";
 
 const DISCORD_API = "https://discord.com/api/v10";
 const DISCORD_AUTHORIZE = "https://discord.com/oauth2/authorize";

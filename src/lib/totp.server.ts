@@ -1,5 +1,5 @@
 /**
- * rexware — TOTP (RFC 6238) core.
+ * skyutils — TOTP (RFC 6238) core.
  *
  * Used to gate critical admin actions behind a rotating one-time code that the
  * admin reads from the authenticated website (Settings → Admin OTP) and types

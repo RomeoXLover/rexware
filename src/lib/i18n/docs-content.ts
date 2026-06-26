@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// rexware documentation content — fully trilingual (EN / IT / RU).
+// skyutils documentation content — fully trilingual (EN / IT / RU).
 //
 // The *structure* (section ids, icons, block kinds, terminal demos) is shared
 // via a single builder so every language stays perfectly in sync. Only the
@@ -89,7 +89,7 @@ type S = Record<string, string>;
 /* ============================ ENGLISH ============================ */
 const en: S = {
   "chrome.badge": "Docs",
-  "chrome.title": "rexware Documentation",
+  "chrome.title": "skyutils Documentation",
   "chrome.subtitle":
     "Everything you need to deploy, run and master your beam bots — from your first sign-in to advanced presets and plugins.",
   "chrome.search": "Search the docs…",
@@ -113,9 +113,9 @@ const en: S = {
   // Introduction
   "intro.title": "Introduction",
   "intro.lead":
-    "rexware is a premium platform to autobeam Minecraft accounts. Deploy multiple undetected bots and run everything from one clean dashboard.",
+    "skyutils is a premium platform to autobeam Minecraft accounts. Deploy multiple undetected bots and run everything from one clean dashboard.",
   "intro.p1":
-    "A “beam bot” is a Minecraft client that logs into a server on your behalf and stays online — moving naturally, replying to messages and running your commands around the clock. rexware runs each bot in its own isolated container so accounts never share state.",
+    "A “beam bot” is a Minecraft client that logs into a server on your behalf and stays online — moving naturally, replying to messages and running your commands around the clock. skyutils runs each bot in its own isolated container so accounts never share state.",
   "intro.cards.multi.t": "Multi-bot management",
   "intro.cards.multi.d":
     "Spin up multiple bots and manage their config, proxies and logs from a single place.",
@@ -152,7 +152,7 @@ const en: S = {
   "signin.title": "Signing in",
   "signin.lead": "Access is handled exclusively through Discord OAuth.",
   "signin.p1":
-    "rexware never stores passwords. When you click Sign in you’re redirected to Discord to authorize the app, then returned to your dashboard. This keeps your account secure and onboarding instant.",
+    "skyutils never stores passwords. When you click Sign in you’re redirected to Discord to authorize the app, then returned to your dashboard. This keeps your account secure and onboarding instant.",
   "signin.list.1": "No passwords, no email lists, no friction.",
   "signin.list.2":
     "Your subscription, bots and billing history are tied to your Discord identity.",
@@ -160,7 +160,7 @@ const en: S = {
     "Sign out anytime from Settings → Account; sessions are per-device.",
   "signin.warn.t": "Don’t confuse the two logins",
   "signin.warn.d":
-    "Discord sign-in unlocks the rexware dashboard. The Minecraft account a bot uses is a separate credential you set when deploying a bot (see Auth modes).",
+    "Discord sign-in unlocks the skyutils dashboard. The Minecraft account a bot uses is a separate credential you set when deploying a bot (see Auth modes).",
 
   // Dashboard
   "dash.title": "The dashboard",
@@ -255,7 +255,7 @@ const en: S = {
   "proxies.title": "Proxies",
   "proxies.lead": "Add and rotate proxies to keep every account safe.",
   "proxies.p1":
-    "Proxies route each bot’s traffic through a different IP so your accounts don’t all originate from one address. rexware rotates them automatically across your bots.",
+    "Proxies route each bot’s traffic through a different IP so your accounts don’t all originate from one address. skyutils rotates them automatically across your bots.",
   "proxies.list.1": "Add proxies in the Proxies section of the dashboard.",
   "proxies.list.2":
     "Each bot picks up rotation automatically — no per-bot setup.",
@@ -323,9 +323,9 @@ const en: S = {
 
   // Safety
   "safety.title": "Account safety",
-  "safety.lead": "How rexware keeps bots below detection thresholds.",
+  "safety.lead": "How skyutils keeps bots below detection thresholds.",
   "safety.p1":
-    "No automation is ever 100% risk-free, but rexware is engineered to blend in. Combine these practices to minimize risk.",
+    "No automation is ever 100% risk-free, but skyutils is engineered to blend in. Combine these practices to minimize risk.",
   "safety.list.1": "Rotating proxies so accounts don’t share an IP.",
   "safety.list.2": "Humanlike movement and anti-AFK patterns.",
   "safety.list.3": "A unique fingerprint per account.",
@@ -337,12 +337,12 @@ const en: S = {
   // FAQ
   "faq.title": "FAQ",
   "faq.lead": "Quick answers to common questions.",
-  "faq.q1": "What exactly is rexware?",
+  "faq.q1": "What exactly is skyutils?",
   "faq.a1":
     "A platform that runs Minecraft bots designed to passively beam accounts. You manage the entire operation — credentials, proxies, behaviors and logs — from one dashboard.",
   "faq.q2": "Will my accounts get banned?",
   "faq.a2":
-    "Every bot uses rotating proxies, humanlike movement and a unique fingerprint. No automation is 100% safe, but rexware is built to stay below detection thresholds on major servers.",
+    "Every bot uses rotating proxies, humanlike movement and a unique fingerprint. No automation is 100% safe, but skyutils is built to stay below detection thresholds on major servers.",
   "faq.q3": "How do I sign in?",
   "faq.a3": "Exclusively through Discord OAuth — no passwords or email lists.",
   "faq.q4": "Can I cancel my subscription?",
@@ -365,7 +365,7 @@ const en: S = {
 /* ============================ ITALIANO ============================ */
 const it: S = {
   "chrome.badge": "Guida",
-  "chrome.title": "Documentazione rexware",
+  "chrome.title": "Documentazione skyutils",
   "chrome.subtitle":
     "Tutto ciò che ti serve per creare, gestire e padroneggiare i tuoi beam bot — dal primo accesso fino a preset e plugin avanzati.",
   "chrome.search": "Cerca nella guida…",
@@ -389,9 +389,9 @@ const it: S = {
 
   "intro.title": "Introduzione",
   "intro.lead":
-    "rexware è una piattaforma premium per fare autobeam di account Minecraft. Distribuisci più bot non rilevabili e gestisci tutto da un’unica dashboard ordinata.",
+    "skyutils è una piattaforma premium per fare autobeam di account Minecraft. Distribuisci più bot non rilevabili e gestisci tutto da un’unica dashboard ordinata.",
   "intro.p1":
-    "Un “beam bot” è un client Minecraft che accede a un server al posto tuo e resta online — muovendosi in modo naturale, rispondendo ai messaggi ed eseguendo i tuoi comandi 24 ore su 24. rexware esegue ogni bot in un container isolato, così gli account non condividono mai lo stato.",
+    "Un “beam bot” è un client Minecraft che accede a un server al posto tuo e resta online — muovendosi in modo naturale, rispondendo ai messaggi ed eseguendo i tuoi comandi 24 ore su 24. skyutils esegue ogni bot in un container isolato, così gli account non condividono mai lo stato.",
   "intro.cards.multi.t": "Gestione multi-bot",
   "intro.cards.multi.d":
     "Avvia più bot e gestisci configurazione, proxy e log da un unico posto.",
@@ -426,7 +426,7 @@ const it: S = {
   "signin.title": "Accesso",
   "signin.lead": "L’accesso avviene esclusivamente tramite Discord OAuth.",
   "signin.p1":
-    "rexware non memorizza mai le password. Quando clicchi Accedi vieni reindirizzato a Discord per autorizzare l’app e poi riportato alla dashboard. Così il tuo account resta sicuro e l’onboarding è immediato.",
+    "skyutils non memorizza mai le password. Quando clicchi Accedi vieni reindirizzato a Discord per autorizzare l’app e poi riportato alla dashboard. Così il tuo account resta sicuro e l’onboarding è immediato.",
   "signin.list.1": "Niente password, niente liste email, nessun attrito.",
   "signin.list.2":
     "Abbonamento, bot e cronologia di pagamento sono legati alla tua identità Discord.",
@@ -434,7 +434,7 @@ const it: S = {
     "Esci quando vuoi da Impostazioni → Account; le sessioni sono per dispositivo.",
   "signin.warn.t": "Non confondere i due accessi",
   "signin.warn.d":
-    "L’accesso Discord sblocca la dashboard rexware. L’account Minecraft usato da un bot è una credenziale separata che imposti al momento del deploy (vedi Modalità di autenticazione).",
+    "L’accesso Discord sblocca la dashboard skyutils. L’account Minecraft usato da un bot è una credenziale separata che imposti al momento del deploy (vedi Modalità di autenticazione).",
 
   "dash.title": "La dashboard",
   "dash.lead": "Tutto è organizzato in sezioni dedicate nella barra laterale.",
@@ -525,7 +525,7 @@ const it: S = {
   "proxies.title": "Proxy",
   "proxies.lead": "Aggiungi e ruota i proxy per tenere al sicuro ogni account.",
   "proxies.p1":
-    "I proxy instradano il traffico di ogni bot attraverso un IP diverso, così gli account non provengono tutti dallo stesso indirizzo. rexware li ruota automaticamente per tutti i bot.",
+    "I proxy instradano il traffico di ogni bot attraverso un IP diverso, così gli account non provengono tutti dallo stesso indirizzo. skyutils li ruota automaticamente per tutti i bot.",
   "proxies.list.1": "Aggiungi i proxy nella sezione Proxy della dashboard.",
   "proxies.list.2":
     "Ogni bot adotta la rotazione automaticamente — nessuna configurazione per bot.",
@@ -592,9 +592,9 @@ const it: S = {
     "I pagamenti in cripto vengono abbinati per importo. Inviare un valore diverso può ritardare o far mancare l’abbinamento — copia l’importo e l’indirizzo mostrati.",
 
   "safety.title": "Sicurezza degli account",
-  "safety.lead": "Come rexware tiene i bot sotto le soglie di rilevamento.",
+  "safety.lead": "Come skyutils tiene i bot sotto le soglie di rilevamento.",
   "safety.p1":
-    "Nessuna automazione è mai sicura al 100%, ma rexware è progettato per mimetizzarsi. Combina queste pratiche per ridurre al minimo il rischio.",
+    "Nessuna automazione è mai sicura al 100%, ma skyutils è progettato per mimetizzarsi. Combina queste pratiche per ridurre al minimo il rischio.",
   "safety.list.1": "Proxy a rotazione, così gli account non condividono un IP.",
   "safety.list.2": "Movimenti realistici e schemi anti-AFK.",
   "safety.list.3": "Un’impronta unica per ogni account.",
@@ -605,12 +605,12 @@ const it: S = {
 
   "faq.title": "FAQ",
   "faq.lead": "Risposte rapide alle domande comuni.",
-  "faq.q1": "Cos’è esattamente rexware?",
+  "faq.q1": "Cos’è esattamente skyutils?",
   "faq.a1":
     "Una piattaforma che esegue bot Minecraft pensati per fare beam passivo degli account. Gestisci i bot — credenziali, proxy, comportamenti e log — da un’unica dashboard.",
   "faq.q2": "I miei account verranno bannati?",
   "faq.a2":
-    "Ogni bot usa proxy a rotazione, movimenti realistici e un’impronta unica. Nessuna automazione è sicura al 100%, ma rexware è costruito per restare sotto le soglie di rilevamento sui server principali.",
+    "Ogni bot usa proxy a rotazione, movimenti realistici e un’impronta unica. Nessuna automazione è sicura al 100%, ma skyutils è costruito per restare sotto le soglie di rilevamento sui server principali.",
   "faq.q3": "Come accedo?",
   "faq.a3":
     "Esclusivamente tramite Discord OAuth — niente password né liste email.",
@@ -633,7 +633,7 @@ const it: S = {
 /* ============================ РУССКИЙ ============================ */
 const ru: S = {
   "chrome.badge": "Документы",
-  "chrome.title": "Документация rexware",
+  "chrome.title": "Документация skyutils",
   "chrome.subtitle":
     "Всё необходимое, чтобы создавать, запускать и осваивать ваших beam-ботов — от первого входа до продвинутых пресетов и плагинов.",
   "chrome.search": "Поиск по документации…",
@@ -657,9 +657,9 @@ const ru: S = {
 
   "intro.title": "Введение",
   "intro.lead":
-    "rexware — премиум-платформа для автобима аккаунтов Minecraft. Разверните несколько незаметных ботов и управляйте всем из одной аккуратной панели.",
+    "skyutils — премиум-платформа для автобима аккаунтов Minecraft. Разверните несколько незаметных ботов и управляйте всем из одной аккуратной панели.",
   "intro.p1":
-    "«Beam-бот» — это клиент Minecraft, который заходит на сервер вместо вас и остаётся онлайн — двигается естественно, отвечает на сообщения и выполняет ваши команды круглосуточно. rexware запускает каждого бота в отдельном изолированном контейнере, поэтому аккаунты никогда не делят состояние.",
+    "«Beam-бот» — это клиент Minecraft, который заходит на сервер вместо вас и остаётся онлайн — двигается естественно, отвечает на сообщения и выполняет ваши команды круглосуточно. skyutils запускает каждого бота в отдельном изолированном контейнере, поэтому аккаунты никогда не делят состояние.",
   "intro.cards.multi.t": "Управление несколькими ботами",
   "intro.cards.multi.d":
     "Запускайте несколько ботов и управляйте их конфигурацией, прокси и логами из одного места.",
@@ -694,7 +694,7 @@ const ru: S = {
   "signin.title": "Вход",
   "signin.lead": "Доступ осуществляется исключительно через Discord OAuth.",
   "signin.p1":
-    "rexware никогда не хранит пароли. Когда вы нажимаете «Войти», вас перенаправляет в Discord для авторизации приложения, а затем возвращает в панель. Так ваш аккаунт остаётся в безопасности, а вход — мгновенным.",
+    "skyutils никогда не хранит пароли. Когда вы нажимаете «Войти», вас перенаправляет в Discord для авторизации приложения, а затем возвращает в панель. Так ваш аккаунт остаётся в безопасности, а вход — мгновенным.",
   "signin.list.1": "Нет паролей, нет списков email, нет лишних барьеров.",
   "signin.list.2":
     "Подписка, боты и история платежей привязаны к вашей личности в Discord.",
@@ -702,7 +702,7 @@ const ru: S = {
     "Выйти можно в любой момент в «Настройки» → «Аккаунт»; сессии раздельные для каждого устройства.",
   "signin.warn.t": "Не путайте два входа",
   "signin.warn.d":
-    "Вход через Discord открывает панель rexware. Аккаунт Minecraft, который использует бот, — это отдельные данные, задаваемые при развёртывании бота (см. «Режимы авторизации»).",
+    "Вход через Discord открывает панель skyutils. Аккаунт Minecraft, который использует бот, — это отдельные данные, задаваемые при развёртывании бота (см. «Режимы авторизации»).",
 
   "dash.title": "Панель управления",
   "dash.lead": "Всё разложено по отдельным разделам в боковом меню.",
@@ -795,7 +795,7 @@ const ru: S = {
   "proxies.lead":
     "Добавляйте и ротируйте прокси, чтобы каждый аккаунт был в безопасности.",
   "proxies.p1":
-    "Прокси направляют трафик каждого бота через отдельный IP, чтобы аккаунты не исходили с одного адреса. rexware автоматически ротирует их по всем вашим ботам.",
+    "Прокси направляют трафик каждого бота через отдельный IP, чтобы аккаунты не исходили с одного адреса. skyutils автоматически ротирует их по всем вашим ботам.",
   "proxies.list.1": "Добавляйте прокси в разделе «Прокси» панели.",
   "proxies.list.2":
     "Каждый бот подхватывает ротацию автоматически — настройка для каждого бота не нужна.",
@@ -859,9 +859,9 @@ const ru: S = {
     "Крипто-платежи сопоставляются по сумме. Отправка другого значения может задержать или сорвать сопоставление — копируйте показанные сумму и адрес.",
 
   "safety.title": "Безопасность аккаунтов",
-  "safety.lead": "Как rexware держит ботов ниже порогов обнаружения.",
+  "safety.lead": "Как skyutils держит ботов ниже порогов обнаружения.",
   "safety.p1":
-    "Ни одна автоматизация не безопасна на 100%, но rexware спроектирован, чтобы сливаться с фоном. Сочетайте эти практики, чтобы свести риск к минимуму.",
+    "Ни одна автоматизация не безопасна на 100%, но skyutils спроектирован, чтобы сливаться с фоном. Сочетайте эти практики, чтобы свести риск к минимуму.",
   "safety.list.1": "Ротация прокси, чтобы аккаунты не делили IP.",
   "safety.list.2": "Человекоподобные движения и анти-AFK паттерны.",
   "safety.list.3": "Уникальный отпечаток для каждого аккаунта.",
@@ -872,12 +872,12 @@ const ru: S = {
 
   "faq.title": "Частые вопросы",
   "faq.lead": "Быстрые ответы на популярные вопросы.",
-  "faq.q1": "Что такое rexware?",
+  "faq.q1": "Что такое skyutils?",
   "faq.a1":
     "Платформа, которая запускает ботов Minecraft для пассивного бима аккаунтов. Вы управляете всеми вашими ботами — учётными данными, прокси, поведением и логами — из одной панели.",
   "faq.q2": "Не забанят ли мои аккаунты?",
   "faq.a2":
-    "Каждый бот использует ротацию прокси, человекоподобные движения и уникальный отпечаток. Ни одна автоматизация не безопасна на 100%, но rexware создан, чтобы оставаться ниже порогов обнаружения на крупных серверах.",
+    "Каждый бот использует ротацию прокси, человекоподобные движения и уникальный отпечаток. Ни одна автоматизация не безопасна на 100%, но skyutils создан, чтобы оставаться ниже порогов обнаружения на крупных серверах.",
   "faq.q3": "Как войти?",
   "faq.a3": "Только через Discord OAuth — без паролей и ��писков email.",
   "faq.q4": "Можно ли отменить подписку?",
@@ -901,7 +901,7 @@ const STRINGS: Record<Language, S> = { en, it, ru };
 /* ─── Shared, language-neutral terminal demos ─── */
 
 const TERM_DEPLOY: TermLine[] = [
-  { t: "cmd", text: "$ rexware deploy" },
+  { t: "cmd", text: "$ skyutils deploy" },
   { t: "prompt", text: "? name        bot-01" },
   { t: "prompt", text: "? username    Steve_2945" },
   { t: "prompt", text: "? host        play.example.net" },
@@ -1064,7 +1064,7 @@ function build(lang: Language): DocsContent {
           tabs: [
             {
               label: tr("bots.deployTermLabel"),
-              title: "rexware — deploy",
+              title: "skyutils — deploy",
               lines: TERM_DEPLOY,
             },
           ],
@@ -1384,5 +1384,5 @@ export function getDocsContent(lang: Language): DocsContent {
   return (CACHE[lang] ??= build(lang));
 }
 
-/** Discord invite used by the docs CTA (rexware's own community). */
+/** Discord invite used by the docs CTA (skyutils's own community). */
 export const DOCS_DISCORD_URL = "https://discord.gg/sTTw2czD4k";

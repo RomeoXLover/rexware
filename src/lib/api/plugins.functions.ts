@@ -161,7 +161,7 @@ const autoReplyConfigSchema = z.object({
   ...sharedExtrasSchema,
 });
 
-// Guild Chat: bridges a Discord guild channel with the RexWare dashboard in real time.
+// Guild Chat: bridges a Discord guild channel with the SkyUtils dashboard in real time.
 // The bot token lives in the server-side env; no token from the user is needed.
 // The server auto-creates a webhook when the user selects a channel.
 const guildChatConfigSchema = z.object({

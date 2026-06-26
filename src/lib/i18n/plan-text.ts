@@ -13,9 +13,9 @@ import type { Language } from "./dictionaries";
 type Translations = Record<string, { it: string; ru: string }>;
 
 const DESCRIPTIONS: Translations = {
-  "Try rexware for 12 hours. One-time per account and IP.": {
-    it: "Prova rexware per 12 ore. Una sola volta per account e IP.",
-    ru: "Попробуйте rexware 12 часов. Один раз на аккаунт и IP.",
+  "Try skyutils for 12 hours. One-time per account and IP.": {
+    it: "Prova skyutils per 12 ore. Una sola volta per account e IP.",
+    ru: "Попробуйте skyutils 12 часов. Один раз на аккаунт и IP.",
   },
   "Ideal for small-scale operations and getting started.": {
     it: "Ideale per operazioni su piccola scala e per iniziare.",

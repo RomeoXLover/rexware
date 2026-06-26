@@ -10,7 +10,7 @@ import pg from "pg";
 // on the internal Docker network — never exposed to the host/internet).
 //
 // Connection is configured via DATABASE_URL, e.g.
-//   postgres://rexware:password@db:5432/rexware
+//   postgres://skyutils:password@db:5432/skyutils
 // ---------------------------------------------------------------------------
 
 const { Pool } = pg;
@@ -29,7 +29,7 @@ export function getPool(): pg.Pool {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
     throw new Error(
-      "DATABASE_URL is not set. Point it at the Postgres container, e.g. postgres://rexware:password@db:5432/rexware",
+      "DATABASE_URL is not set. Point it at the Postgres container, e.g. postgres://skyutils:password@db:5432/skyutils",
     );
   }
 
@@ -791,7 +791,7 @@ async function seedPlans(pool: pg.Pool): Promise<void> {
     {
       id: "free_trial",
       name: "Trial (12h)",
-      description: "Try rexware for 12 hours. One-time per account and IP.",
+      description: "Try skyutils for 12 hours. One-time per account and IP.",
       price_usd: 0,
       interval: "day",
       max_bots: 1,

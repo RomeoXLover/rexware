@@ -535,8 +535,8 @@ function Dashboard() {
       {/* Mobile top bar */}
       <header className="fixed inset-x-0 top-0 z-30 flex items-center justify-between border-b border-sidebar-border bg-sidebar/95 backdrop-blur-xl px-4 py-3 md:hidden">
         <div className="flex items-center gap-2">
-          <img src="/logo.png" alt="RexWare" className="h-6 w-6" />
-          <span className="font-semibold tracking-tight">RexWare</span>
+          <img src="/logo.png" alt="SkyUtils" className="h-6 w-6" />
+          <span className="font-semibold tracking-tight">SkyUtils</span>
         </div>
         <div className="flex items-center gap-1">
           <NotifButton
@@ -782,7 +782,7 @@ function Sidebar({
           <img src="/logo.png" alt="" className="h-5 w-5" aria-hidden="true" />
         </div>
         <span className="text-[17px] font-semibold tracking-tight">
-          RexWare
+          SkyUtils
         </span>
       </div>
 

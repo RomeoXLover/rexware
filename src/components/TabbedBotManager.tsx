@@ -1182,7 +1182,7 @@ function ActionsTab({
       await fetch(bot.webhook_url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: "Test message from RexWare Bot" }),
+        body: JSON.stringify({ content: "Test message from SkyUtils Bot" }),
       });
       const entry: ActionHistoryEntry = {
         id: generateId(),

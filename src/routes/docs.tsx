@@ -51,11 +51,11 @@ import {
 export const Route = createFileRoute("/docs")({
   head: () => ({
     meta: [
-      { title: "Documentation — RexWare" },
+      { title: "Documentation — SkyUtils" },
       {
         name: "description",
         content:
-          "Learn how to deploy, run and master your RexWare beam bots — sign-in, bots, the live console, reply actions, presets, proxies, plugins, plans and billing.",
+          "Learn how to deploy, run and master your SkyUtils beam bots — sign-in, bots, the live console, reply actions, presets, proxies, plugins, plans and billing.",
       },
     ],
   }),
@@ -462,8 +462,8 @@ function DocsPage() {
             to="/"
             className="flex items-center gap-2 font-semibold tracking-tight"
           >
-            <img src="/logo.png" alt="RexWare" className="h-6 w-6" />
-            <span className="hidden sm:inline">RexWare</span>
+            <img src="/logo.png" alt="SkyUtils" className="h-6 w-6" />
+            <span className="hidden sm:inline">SkyUtils</span>
           </Link>
           <span className="hidden text-muted-foreground/40 sm:inline">/</span>
           <span className="hidden text-sm text-muted-foreground sm:inline">
@@ -687,7 +687,7 @@ function DocsPage() {
       {/* Footer */}
       <footer className="border-t border-border/40">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground">
-          <span>RexWare © {new Date().getFullYear()}</span>
+          <span>SkyUtils © {new Date().getFullYear()}</span>
           <div className="flex items-center gap-6">
             <Link to="/" className="transition-colors hover:text-foreground">
               {tt("home.nav.home", "Home")}

@@ -1,5 +1,5 @@
 /**
- * RexWare AI — AI chat module for the RexWare platform.
+ * SkyUtils AI — AI chat module for the SkyUtils platform.
  * Uses neokens (quatarly.cloud) with Gemini Flash.
  *
  * Required env var: NEOKENS_API_KEY
@@ -17,12 +17,12 @@ const client = new OpenAI({
   baseURL: NEOKENS_BASE_URL,
 });
 
-export const SYSTEM_PROMPT = `You are **RexWare AI**, the official AI assistant for **RexWare** — a premium platform to autobeam Minecraft accounts.
+export const SYSTEM_PROMPT = `You are **SkyUtils AI**, the official AI assistant for **SkyUtils** — a premium platform to autobeam Minecraft accounts.
 
-Your job is to welcome users, answer their questions accurately, guide them through the platform, and help them get the most out of RexWare. You reply both in server channels (when @mentioned) and in direct messages.
+Your job is to welcome users, answer their questions accurately, guide them through the platform, and help them get the most out of SkyUtils. You reply both in server channels (when @mentioned) and in direct messages.
 
 ## Who you are
-- Friendly, sharp, and deeply knowledgeable about the entire RexWare ecosystem.
+- Friendly, sharp, and deeply knowledgeable about the entire SkyUtils ecosystem.
 - Concise by default — short, scannable answers. Expand only when the user asks for detail.
 - Accurate and honest. If you don't know something, say so and point to a support ticket — never invent facts, prices, or features.
 - You are NOT a replacement for human staff. For billing disputes, account bans, refunds, or complex technical failures, direct users to open a support ticket.
@@ -30,8 +30,8 @@ Your job is to welcome users, answer their questions accurately, guide them thro
 ## Language
 - Detect the user's language from their message and **always reply in that same language** (English, Italian, Russian, etc.). Match their tone.
 
-## What RexWare is
-RexWare runs Minecraft "beam bots" — clients that log into a server on the user's behalf and stay online, moving naturally, replying to messages, and running commands 24/7. Each bot runs in its own isolated container, so accounts never share state. Everything is managed from one clean web dashboard — no command line required.
+## What SkyUtils is
+SkyUtils runs Minecraft "beam bots" — clients that log into a server on the user's behalf and stay online, moving naturally, replying to messages, and running commands 24/7. Each bot runs in its own isolated container, so accounts never share state. Everything is managed from one clean web dashboard — no command line required.
 
 ## Getting started (the 4-step quick start)
 1. **Sign in with Discord** — access is exclusively through Discord OAuth. No passwords, no email lists. Your Discord account is your identity.
@@ -60,7 +60,7 @@ RexWare runs Minecraft "beam bots" — clients that log into a server on the use
 - Prices are processed in USD. Plans renew monthly and can be cancelled anytime; access continues until the end of the current period.
 
 ## Account safety
-- No automation is 100% risk-free, but RexWare blends in via rotating proxies, humanlike movement, a unique fingerprint per account, and reasonable bot-hours. Tip: warm up new accounts with shorter sessions before ramping up.
+- No automation is 100% risk-free, but SkyUtils blends in via rotating proxies, humanlike movement, a unique fingerprint per account, and reasonable bot-hours. Tip: warm up new accounts with shorter sessions before ramping up.
 
 ## Useful commands
 \`/plan\` (view plans), \`/info\` (your status), \`/help\`, \`/faq\`, \`/tos\`, \`/ticket open\` (support), \`/ai\` (toggle these AI replies on/off).
@@ -162,7 +162,7 @@ const MOD_TOOLS: OpenAI.Chat.ChatCompletionTool[] = [
     type: "function",
     function: {
       name: "ban_member",
-      description: "Ban a Discord member from the server and suspend their RexWare account.",
+      description: "Ban a Discord member from the server and suspend their SkyUtils account.",
       parameters: {
         type: "object",
         properties: {
@@ -223,7 +223,7 @@ export async function generateReply(
   if (!NEOKENS_KEY) {
     return {
       reply:
-        "RexWare AI is not configured — the `NEOKENS_API_KEY` environment variable is missing. " +
+        "SkyUtils AI is not configured — the `NEOKENS_API_KEY` environment variable is missing. " +
         "Ask an admin to set it up.",
       actions: [],
     };

@@ -35,7 +35,7 @@ export const Route = createFileRoute("/api/guild/chat/messages")({
               headers: {
                 Authorization: `Bot ${botToken}`,
                 "Content-Type": "application/json",
-                "User-Agent": "RexWare/1.0",
+                "User-Agent": "SkyUtils/1.0",
               },
             });
             return res.ok ? await res.json() : [];
@@ -52,7 +52,7 @@ export const Route = createFileRoute("/api/guild/chat/messages")({
             const [initMsgs, guildRes] = await Promise.all([
               fetchMessages(),
               fetch(`${DISCORD_API}/guilds/${guildId}?with_counts=true`, {
-                headers: { Authorization: `Bot ${botToken}`, "User-Agent": "RexWare/1.0" },
+                headers: { Authorization: `Bot ${botToken}`, "User-Agent": "SkyUtils/1.0" },
               }),
             ]);
 

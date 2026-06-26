@@ -61,15 +61,15 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "RexWare — Autobeam Minecraft Accounts" },
+      { title: "SkyUtils — Autobeam Minecraft Accounts" },
       {
         name: "description",
         content:
-          "RexWare is a premium platform to autobeam Minecraft accounts. Deploy multiple undetected bots and manage everything from one clean dashboard.",
+          "SkyUtils is a premium platform to autobeam Minecraft accounts. Deploy multiple undetected bots and manage everything from one clean dashboard.",
       },
       {
         property: "og:title",
-        content: "RexWare — Autobeam Minecraft Accounts",
+        content: "SkyUtils — Autobeam Minecraft Accounts",
       },
       {
         property: "og:description",
@@ -655,7 +655,7 @@ function Home() {
               />
             </div>
             <span className="transition-colors duration-200 group-hover:text-foreground/80">
-              RexWare
+              SkyUtils
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -1414,7 +1414,7 @@ function Home() {
       <footer className="border-t border-border/40">
         <div className="mx-auto max-w-6xl px-6 py-8 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <span>RexWare © {new Date().getFullYear()}</span>
+            <span>SkyUtils © {new Date().getFullYear()}</span>
           </div>
           <div className="flex gap-6">
             <Link

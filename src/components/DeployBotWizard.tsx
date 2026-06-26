@@ -136,7 +136,7 @@ const QUICK_ACTIONS = [
   { label: "/home {reply}", icon: Star },
 ];
 
-const STORED_PRESETS_KEY = "rexware_reply_presets";
+const STORED_PRESETS_KEY = "skyutils_reply_presets";
 
 // ============================================================================
 // Utility Functions

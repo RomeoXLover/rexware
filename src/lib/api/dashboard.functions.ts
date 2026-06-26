@@ -213,7 +213,7 @@ export function buildTicketTranscript(
     new Date(ts).toISOString().replace("T", " ").slice(0, 19) + " UTC";
   const code = ticket.id.slice(-6).toUpperCase();
   const lines: string[] = [];
-  lines.push("rexware — Ticket Transcript");
+  lines.push("skyutils — Ticket Transcript");
   lines.push("=".repeat(40));
   lines.push(`Ticket:    #${code} (${ticket.id})`);
   lines.push(`Subject:   ${ticket.subject}`);
@@ -379,7 +379,7 @@ export const redeemFreeTrial = createServerFn({ method: "POST" }).handler(
         userId: user.id,
         type: "payment",
         title: "Free trial activated",
-        body: "Your 12-hour free trial is now active. Enjoy rexware!",
+        body: "Your 12-hour free trial is now active. Enjoy skyutils!",
       });
     }
 

@@ -343,7 +343,7 @@ export function GlobalChatSection() {
               </div>
               <h2 className="mb-2 text-xl font-bold text-white">Global Chat</h2>
               <p className="text-[14px] text-[#b5bac1]">
-                Chat with other RexWare operators in real time.
+                Chat with other SkyUtils operators in real time.
               </p>
             </div>
           ) : (

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ---------------------------------------------------------------------------
-# RexWare build + deploy helper.
+# SkyUtils build + deploy helper.
 #
 # Rebuilds the images and recreates the running containers so code changes
 # (web UI, API, AND the per-run bot image used by both Discord plugins) always
@@ -42,13 +42,13 @@ for arg in "$@"; do
 done
 
 build_bot() {
-  echo ">> Building per-run bot image (rexware/bot:latest)…"
+  echo ">> Building per-run bot image (skyutils/bot:latest)…"
   # The bot image lives behind the build-only profile.
   $DC --profile build-only build $NO_CACHE bot
 }
 
 build_web() {
-  echo ">> Building web image (rexware/web:latest)…"
+  echo ">> Building web image (skyutils/web:latest)…"
   $DC build $NO_CACHE web
 }
 

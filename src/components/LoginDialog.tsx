@@ -270,7 +270,7 @@ export function LoginDialogProvider({ children }: { children: ReactNode }) {
                   animation: "ac-splash-in 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s both",
                 }}
               >
-                <img src="/logo.png" alt="RexWare" className="h-8 w-8" />
+                <img src="/logo.png" alt="SkyUtils" className="h-8 w-8" />
               </div>
 
               <DialogTitle

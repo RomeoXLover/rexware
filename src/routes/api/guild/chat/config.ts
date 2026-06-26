@@ -47,7 +47,7 @@ export const Route = createFileRoute("/api/guild/chat/config")({
         const headers = {
           Authorization: `Bot ${botToken}`,
           "Content-Type": "application/json",
-          "User-Agent": "RexWare/1.0",
+          "User-Agent": "SkyUtils/1.0",
         };
 
         try {
@@ -69,11 +69,11 @@ export const Route = createFileRoute("/api/guild/chat/config")({
           const guild = await guildRes.json();
           const channel = await channelRes.json();
 
-          // Auto-create webhook in this channel (name = RexWare)
+          // Auto-create webhook in this channel (name = SkyUtils)
           const webhookRes = await fetch(`${DISCORD_API}/channels/${channelId}/webhooks`, {
             method: "POST",
             headers,
-            body: JSON.stringify({ name: "RexWare", avatar: null }),
+            body: JSON.stringify({ name: "SkyUtils", avatar: null }),
           });
 
           if (!webhookRes.ok) {
@@ -82,7 +82,7 @@ export const Route = createFileRoute("/api/guild/chat/config")({
             if (existingRes.ok) {
               const webhooks = await existingRes.json();
               const existing = (webhooks as Array<{ id: string; token: string; url: string }>).find(
-                (w) => w.name === "RexWare",
+                (w) => w.name === "SkyUtils",
               );
               if (existing) {
                 const config = await guildChatRepo.upsert({

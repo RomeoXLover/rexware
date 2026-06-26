@@ -763,7 +763,7 @@ function PaymentModal({
           <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/5 px-4 py-3 text-xs text-yellow-400/80 leading-relaxed">
             Send the exact amount shown. Do not close this page until the
             payment is confirmed. Funds will be forwarded directly to the
-            RexWare wallet — your subscription activates automatically.
+            SkyUtils wallet — your subscription activates automatically.
           </div>
 
           <a

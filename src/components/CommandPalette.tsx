@@ -86,7 +86,7 @@ const CATEGORY_ICONS: Record<CommandCategory, React.ReactNode> = {
   Recent: <Clock className="h-3.5 w-3.5" />,
 };
 
-const RECENT_COMMANDS_KEY = "rexware_recent_commands";
+const RECENT_COMMANDS_KEY = "skyutils_recent_commands";
 const MAX_RECENT = 5;
 
 // ============================================================================

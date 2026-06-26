@@ -170,7 +170,7 @@ function GuildPicker({
           </div>
           <h2 className="text-[22px] font-bold text-white">Select Your Discord Guild</h2>
           <p className="text-[14px] text-[#b5bac1]">
-            Choose which server you want to bridge to RexWare. Only servers where RexWare's bot has admin permissions are shown.
+            Choose which server you want to bridge to SkyUtils. Only servers where SkyUtils's bot has admin permissions are shown.
           </p>
         </div>
 
@@ -191,7 +191,7 @@ function GuildPicker({
             ))
           ) : guilds.length === 0 ? (
             <div className="col-span-2 rounded-xl border border-[#313338] bg-[#1e1f22] p-8 text-center">
-              <p className="text-[14px] text-[#b5bac1]">No guilds found. Make sure the RexWare bot is in your server with admin permissions.</p>
+              <p className="text-[14px] text-[#b5bac1]">No guilds found. Make sure the SkyUtils bot is in your server with admin permissions.</p>
             </div>
           ) : (
             guilds.map((g) => (
@@ -912,7 +912,7 @@ export function GuildChatSection() {
         {/* User bar */}
         <div className="flex items-center gap-2 border-t border-black/40 px-2 py-2" style={{ background: "#232428" }}>
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5865F2] text-[11px] font-semibold text-white">RE</div>
-          <div className="min-w-0 flex-1"><div className="text-[13px] font-medium text-white truncate">RexWare</div><div className="text-[11px] text-[#b5bac1]">Online</div></div>
+          <div className="min-w-0 flex-1"><div className="text-[13px] font-medium text-white truncate">SkyUtils</div><div className="text-[11px] text-[#b5bac1]">Online</div></div>
           <Settings className="h-4 w-4 text-[#b5bac1]" />
         </div>
       </aside>

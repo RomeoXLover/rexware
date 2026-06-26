@@ -6,11 +6,11 @@ import { useT } from "@/lib/preferences";
 export const Route = createFileRoute("/leaderboard")({
   head: () => ({
     meta: [
-      { title: "Leaderboard — RexWare" },
+      { title: "Leaderboard — SkyUtils" },
       {
         name: "description",
         content:
-          "See how RexWare operators stack up. Top bot-hours, most active operations, and more.",
+          "See how SkyUtils operators stack up. Top bot-hours, most active operations, and more.",
       },
     ],
   }),
@@ -86,7 +86,7 @@ function LeaderboardPage() {
             className="flex items-center gap-2 font-semibold tracking-tight group"
           >
             <img src="/logo.png" alt="Logo" className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
-            <span>RexWare</span>
+            <span>SkyUtils</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

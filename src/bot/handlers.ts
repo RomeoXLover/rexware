@@ -1,5 +1,5 @@
 /**
- * RexWare Discord Bot — All slash command & button handlers.
+ * SkyUtils Discord Bot — All slash command & button handlers.
  * Every response uses Discord Components v2 (flags: 32768).
  *
  * TIER LOGIC:
@@ -75,7 +75,7 @@ import { requestConfirmation } from "./otp.js";
 // Helpers
 // ---------------------------------------------------------------------------
 
-const BASE_URL = process.env.APP_BASE_URL ?? "https://rexware.lol";
+const BASE_URL = process.env.APP_BASE_URL ?? "https://skyutils.xyz";
 const REVIEWS_CHANNEL_ID = process.env.DISCORD_REVIEWS_CHANNEL_ID ?? "";
 const {
   categoryName: TICKETS_CATEGORY,
@@ -87,7 +87,7 @@ const {
 const { trialRoleId: TRIAL_ROLE_ID } = getTrialRoleConfig();
 
 /**
- * Check if a Discord user is staff: RexWare admin OR owner.
+ * Check if a Discord user is staff: SkyUtils admin OR owner.
  */
 async function isStaff(discordId: string): Promise<boolean> {
   const user = await usersRepo.byDiscordId(discordId);
@@ -163,7 +163,7 @@ export async function handleReview(
   const user = await usersRepo.byDiscordId(discordId);
   if (!user) {
     await i.editReply(
-      errorMessage(`No RexWare account found. Register at ${BASE_URL}`) as never,
+      errorMessage(`No SkyUtils account found. Register at ${BASE_URL}`) as never,
     );
     return;
   }
@@ -412,7 +412,7 @@ async function buildPricelistComponents(): Promise<AnyComponent[]> {
   const plans = (await plansRepo.allActive()).filter((p) => !p.is_trial);
 
   const items: AnyComponent[] = [
-    text("# RexWare Price List"),
+    text("# SkyUtils Price List"),
     text("Choose the plan that fits your needs. Prices are billed per interval and can be upgraded at any time."),
     sep(true),
   ];
@@ -468,9 +468,9 @@ async function buildTosComponents(): Promise<AnyComponent[]> {
   const body =
     custom ??
     [
-      "By using RexWare you agree to the following terms:",
+      "By using SkyUtils you agree to the following terms:",
       "",
-      "**1. Acceptable Use** — RexWare provides Minecraft automation tooling. You are responsible for ensuring your usage complies with the terms of service of any third-party server you connect to.",
+      "**1. Acceptable Use** — SkyUtils provides Minecraft automation tooling. You are responsible for ensuring your usage complies with the terms of service of any third-party server you connect to.",
       "**2. Accounts** — You are responsible for activity under your account and for keeping your credentials secure. One person may not share a single subscription across unrelated parties.",
       "**3. Payments & Refunds** — Subscriptions are billed in advance per interval. Because access is granted instantly, payments are generally non-refundable except where required by law.",
       "**4. Fair Use** — Abuse of the platform (resource exhaustion, fraud, chargebacks, or attempts to bypass plan limits) may result in suspension without refund.",
@@ -484,7 +484,7 @@ async function buildTosComponents(): Promise<AnyComponent[]> {
     sep(true),
     text(body),
     sep(false),
-    text("*By continuing to use RexWare, you acknowledge that you have read and agree to these terms.*"),
+    text("*By continuing to use SkyUtils, you acknowledge that you have read and agree to these terms.*"),
     row(btn("Full Terms", 5, { url: BASE_URL + "/terms" })),
   ];
 }
@@ -529,7 +529,7 @@ export async function handleHelp(i: ChatInputCommandInteraction) {
   const isAdmin = !!i.memberPermissions?.has(PermissionsBitField.Flags.Administrator);
 
   const items: AnyComponent[] = [
-    text("## RexWare Bot — Commands"),
+    text("## SkyUtils Bot — Commands"),
     sep(true),
     text(
       "**General**\n" +
@@ -588,7 +588,7 @@ export async function handleFaq(i: ChatInputCommandInteraction) {
     text("## Frequently Asked Questions"),
     sep(true),
     text(
-      "**What is RexWare?**\n" +
+      "**What is SkyUtils?**\n" +
         "A platform to deploy and manage Minecraft automation bots from a single dashboard.",
     ),
     sep(false, 1),
@@ -696,7 +696,7 @@ export async function handleTicketOpen(i: ChatInputCommandInteraction, guild: Gu
 
   if (!user) {
     await i.editReply(
-      errorMessage(`No RexWare account found for your Discord. Register at ${BASE_URL}`) as never,
+      errorMessage(`No SkyUtils account found for your Discord. Register at ${BASE_URL}`) as never,
     );
     return;
   }
@@ -814,7 +814,7 @@ export async function handleTicketClose(i: ChatInputCommandInteraction) {
   const user = await usersRepo.byDiscordId(discordId);
 
   if (!user) {
-    await i.editReply(errorMessage("No RexWare account found.") as never);
+    await i.editReply(errorMessage("No SkyUtils account found.") as never);
     return;
   }
 
@@ -871,7 +871,7 @@ export async function handleTicketStatus(i: ChatInputCommandInteraction) {
   const user = await usersRepo.byDiscordId(discordId);
 
   if (!user) {
-    await i.editReply(errorMessage("No RexWare account found.") as never);
+    await i.editReply(errorMessage("No SkyUtils account found.") as never);
     return;
   }
 
@@ -909,7 +909,7 @@ export async function handleTicketReopen(i: ChatInputCommandInteraction) {
   const discordId = i.user.id;
   const user = await usersRepo.byDiscordId(discordId);
   if (!user) {
-    await i.editReply(errorMessage("No RexWare account found.") as never);
+    await i.editReply(errorMessage("No SkyUtils account found.") as never);
     return;
   }
 
@@ -998,7 +998,7 @@ export async function handleAdminTicketPanel(i: ChatInputCommandInteraction) {
             "Need help? Open a support ticket and our team will assist you as soon as possible.\n\n" +
             "**Before opening a ticket:**\n" +
             "- Check the FAQ and documentation\n" +
-            "- Make sure you have a registered RexWare account\n\n" +
+            "- Make sure you have a registered SkyUtils account\n\n" +
             "**Pro & Enterprise users:** You can also open tickets directly from the dashboard for priority support.",
           ),
           sep(false),
@@ -1850,7 +1850,7 @@ export async function handleButtonTicketClose(i: ButtonInteraction, ticketId: st
   const user = await usersRepo.byDiscordId(discordId);
 
   if (!user) {
-    await i.reply({ ...errorMessage("No RexWare account found."), ephemeral: true } as never);
+    await i.reply({ ...errorMessage("No SkyUtils account found."), ephemeral: true } as never);
     return;
   }
 
@@ -2039,7 +2039,7 @@ export async function handleModalTicketOpen(i: ModalSubmitInteraction) {
 
   if (!user) {
     await i.editReply(
-      errorMessage(`No RexWare account linked. Register at ${BASE_URL}`) as never,
+      errorMessage(`No SkyUtils account linked. Register at ${BASE_URL}`) as never,
     );
     return;
   }

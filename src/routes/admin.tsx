@@ -1112,7 +1112,7 @@ function AdminDashboard() {
                 <div className="space-y-1.5">
                   <label className="text-xs font-medium text-muted-foreground">Title</label>
                   <Input
-                    placeholder="e.g. RexWare v2.5 is live"
+                    placeholder="e.g. SkyUtils v2.5 is live"
                     value={dmTitle}
                     onChange={(e) => setDmTitle(e.target.value)}
                     maxLength={120}
@@ -1131,7 +1131,7 @@ function AdminDashboard() {
                 <div className="space-y-1.5">
                   <label className="text-xs font-medium text-muted-foreground">Link URL (optional)</label>
                   <Input
-                    placeholder="https://rexware.lol/dash"
+                    placeholder="https://skyutils.xyz/dash"
                     value={dmUrl}
                     onChange={(e) => setDmUrl(e.target.value)}
                     type="url"

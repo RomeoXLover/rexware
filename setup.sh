@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ===========================================================================
-# RexWare / rexware.lol — one-shot setup for Ubuntu
+# SkyUtils / skyutils.xyz — one-shot setup for Ubuntu
 # ===========================================================================
 # Provisions the app stack on a fresh Ubuntu server. This stack runs BEHIND the
 # nginx already installed on the VPS: it does NOT run its own nginx and does NOT
@@ -25,11 +25,11 @@
 #   sudo ./setup.sh nginx           # install the server block into the host
 #                                   # nginx (sites-available) + test + reload.
 #   sudo ./setup.sh certbot         # install certbot + request SSL cert for
-#                                   # rexware.lol (or re-run after nginx install).
+#                                   # skyutils.xyz (or re-run after nginx install).
 #   ./setup.sh --help
 #
 # Config is read from .env (or the environment):
-#   DOMAIN     default: rexware.lol
+#   DOMAIN     default: skyutils.xyz
 #   APP_PORT   loopback port the app is exposed on (default 3000)
 #   SSL_CERT   default: /etc/letsencrypt/live/$DOMAIN/fullchain.pem
 #   SSL_KEY    default: /etc/letsencrypt/live/$DOMAIN/privkey.pem
@@ -213,7 +213,7 @@ prepare_env() {
   fi
 
   local domain
-  domain="$(env_get DOMAIN)"; domain="${DOMAIN:-${domain:-rexware.lol}}"
+  domain="$(env_get DOMAIN)"; domain="${DOMAIN:-${domain:-skyutils.xyz}}"
   env_set_if_empty "DOMAIN"               "${domain}"
   env_set_if_empty "APP_PORT"             "3000"
   env_set_if_empty "APP_BASE_URL"         "https://${domain}"
@@ -282,13 +282,13 @@ rebuild_stack() {
 # ===========================================================================
 # nginx subcommand — install the server block into the HOST nginx
 # ===========================================================================
-# Renders nginx/rexware.conf with DOMAIN/APP_PORT, copies it into
+# Renders nginx/skyutils.conf with DOMAIN/APP_PORT, copies it into
 # /etc/nginx/sites-available/, enables it, validates and reloads nginx.
 # TLS uses the certificates you already generated (default Let's Encrypt
 # paths; override with SSL_CERT / SSL_KEY in .env or the environment).
 install_nginx_config() {
   local domain port ssl_cert ssl_key rendered target
-  domain="${DOMAIN:-$(env_get DOMAIN)}"; domain="${domain:-rexware.lol}"
+  domain="${DOMAIN:-$(env_get DOMAIN)}"; domain="${domain:-skyutils.xyz}"
   port="${APP_PORT:-$(env_get APP_PORT)}"; port="${port:-3000}"
   ssl_cert="${SSL_CERT:-$(env_get SSL_CERT)}"
   ssl_cert="${ssl_cert:-/etc/letsencrypt/live/${domain}/fullchain.pem}"
@@ -299,7 +299,7 @@ install_nginx_config() {
 
   # Render the template with the actual domain/port/cert paths.
   rendered="$(mktemp)"
-  sed -e "s/rexware\.lol/${domain}/g" \
+  sed -e "s/skyutils\.lol/${domain}/g" \
       -e "s#http://127.0.0.1:3000#http://127.0.0.1:${port}#g" \
       -e "s#/etc/letsencrypt/live/${domain}/fullchain.pem#${ssl_cert}#" \
       -e "s#/etc/letsencrypt/live/${domain}/privkey.pem#${ssl_key}#" \
@@ -353,7 +353,7 @@ install_nginx_config() {
 install_certbot() {
   need_root
 
-  local domain="${DOMAIN:-$(env_get DOMAIN)}"; domain="${domain:-rexware.lol}"
+  local domain="${DOMAIN:-$(env_get DOMAIN)}"; domain="${domain:-skyutils.xyz}"
 
   info "Installing certbot..."
   ${SUDO} apt-get update -y
@@ -409,7 +409,7 @@ fi
 
 if [ "${SUBCOMMAND}" = "rebuild" ]; then
   hr
-  info "RexWare rebuild — project root: ${PROJECT_ROOT}"
+  info "SkyUtils rebuild — project root: ${PROJECT_ROOT}"
   hr
   rebuild_stack
   hr
@@ -419,7 +419,7 @@ if [ "${SUBCOMMAND}" = "rebuild" ]; then
 fi
 
 hr
-info "RexWare setup — project root: ${PROJECT_ROOT}"
+info "SkyUtils setup — project root: ${PROJECT_ROOT}"
 hr
 
 install_docker_ubuntu
@@ -435,7 +435,7 @@ echo "  - Edit .env to fill Discord + payment values (secrets were auto-generate
 echo "  - Wire your host nginx to the app:  sudo ./setup.sh nginx"
 echo "    (installs the server block, tests, and reloads nginx)."
 echo "  - Get SSL certificate:               sudo ./setup.sh certbot"
-echo "    (installs certbot + requests Let's Encrypt cert for rexware.lol)."
+echo "    (installs certbot + requests Let's Encrypt cert for skyutils.xyz)."
 echo "  - Cloudflare: orange cloud ON, SSL/TLS mode 'Full (strict)'."
 echo "  - To ship an update later:  git pull && ./setup.sh rebuild"
 hr

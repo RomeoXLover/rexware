@@ -26,7 +26,7 @@ export const Route = createFileRoute("/api/guild/chat/channels")({
         const headers = {
           Authorization: `Bot ${botToken}`,
           "Content-Type": "application/json",
-          "User-Agent": "RexWare/1.0",
+          "User-Agent": "SkyUtils/1.0",
         };
 
         try {

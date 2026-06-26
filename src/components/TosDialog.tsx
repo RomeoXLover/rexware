@@ -118,7 +118,7 @@ export function TosDialog({
                   Terms of Service
                 </DialogTitle>
                 <DialogDescription className="text-muted-foreground/80">
-                  Please read carefully before using RexWare.
+                  Please read carefully before using SkyUtils.
                 </DialogDescription>
               </div>
             </div>
@@ -133,8 +133,8 @@ export function TosDialog({
           </div>
 
           <Section title="1. Acceptance of Terms">
-            <p>By accessing or using RexWare Services, you agree to be bound by these Terms. If you disagree, you may not access the Service.</p>
-            <p>RexWare may update these Terms at any time. Continued use constitutes acceptance.</p>
+            <p>By accessing or using SkyUtils Services, you agree to be bound by these Terms. If you disagree, you may not access the Service.</p>
+            <p>SkyUtils may update these Terms at any time. Continued use constitutes acceptance.</p>
           </Section>
 
           <Section title="2. Eligibility">
@@ -142,7 +142,7 @@ export function TosDialog({
           </Section>
 
           <Section title="3. Service Description">
-            <p>RexWare provides a platform to deploy and manage automated Minecraft bots. RexWare assumes no responsibility for any illegal activities committed in connection with the service.</p>
+            <p>SkyUtils provides a platform to deploy and manage automated Minecraft bots. SkyUtils assumes no responsibility for any illegal activities committed in connection with the service.</p>
           </Section>
 
           <Section title="4. User Accounts">
@@ -172,11 +172,11 @@ export function TosDialog({
           </Section>
 
           <Section title="8. Disclaimer of Warranties">
-            <p>The Service is provided "AS IS" without warranties. RexWare does not guarantee uninterrupted or error-free operation. You assume all risks of account bans.</p>
+            <p>The Service is provided "AS IS" without warranties. SkyUtils does not guarantee uninterrupted or error-free operation. You assume all risks of account bans.</p>
           </Section>
 
           <Section title="9. Limitation of Liability">
-            <p>To the maximum extent permitted by law, RexWare shall not be liable for indirect, incidental, or consequential damages. Total liability does not exceed amounts paid by you in the last 12 months.</p>
+            <p>To the maximum extent permitted by law, SkyUtils shall not be liable for indirect, incidental, or consequential damages. Total liability does not exceed amounts paid by you in the last 12 months.</p>
           </Section>
         </div>
 
@@ -249,7 +249,7 @@ export function BlockedPopup({
         </div>
         <div className="px-6 py-5">
           <p className="text-muted-foreground">
-            You must accept the Terms of Service to use RexWare. Without
+            You must accept the Terms of Service to use SkyUtils. Without
             acceptance, you cannot access the dashboard.
           </p>
           <div className="mt-6 flex justify-end gap-3">

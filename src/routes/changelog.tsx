@@ -6,11 +6,11 @@ import { usePreferences, useT } from "@/lib/preferences";
 export const Route = createFileRoute("/changelog")({
   head: () => ({
     meta: [
-      { title: "Changelog — RexWare" },
+      { title: "Changelog — SkyUtils" },
       {
         name: "description",
         content:
-          "See what's new in RexWare. Every update, improvement, and fix — all in one place.",
+          "See what's new in SkyUtils. Every update, improvement, and fix — all in one place.",
       },
     ],
   }),
@@ -142,7 +142,7 @@ const CHANGELOG: Entry[] = [
     changes: [
       {
         type: "new",
-        text: "RexWare launches — Minecraft account autobeaming platform.",
+        text: "SkyUtils launches — Minecraft account autobeaming platform.",
       },
       {
         type: "new",
@@ -197,7 +197,7 @@ function ChangelogPage() {
             className="flex items-center gap-2 font-semibold tracking-tight group"
           >
             <img src="/logo.png" alt="Logo" className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
-            <span>RexWare</span>
+            <span>SkyUtils</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -291,7 +291,7 @@ function ChangelogPage() {
         {/* CTA */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-6">
-            Stay up to date — powered by RexWare.
+            Stay up to date — powered by SkyUtils.
           </p>
           <Button size="lg" className="rounded-full" asChild>
             <Link to="/dash">

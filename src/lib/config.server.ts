@@ -91,7 +91,7 @@ export function getCryptApiConfig() {
 // --- Database --------------------------------------------------------------
 
 export function getDatabasePath(): string {
-  return optionalEnv("DATABASE_PATH", "./data/rexware.db");
+  return optionalEnv("DATABASE_PATH", "./data/skyutils.db");
 }
 
 // --- Ticket system -----------------------------------------------------------

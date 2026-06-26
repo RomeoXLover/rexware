@@ -1,5 +1,5 @@
 /**
- * RexWare Discord Bot — OTP confirmation for critical admin actions.
+ * SkyUtils Discord Bot — OTP confirmation for critical admin actions.
  *
  * Second factor is the rotating TOTP code shown on the website
  * (Settings → Admin OTP). It is intentionally delivered on a DIFFERENT channel

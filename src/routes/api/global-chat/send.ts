@@ -33,7 +33,7 @@ function checkRateLimit(
 // ---------------------------------------------------------------------------
 // Post a message to Discord via the ONE bot webhook for the global chat channel.
 // The bot creates and stores this webhook at startup (stored in user_webhooks
-// with user_id="rexware-bot"). Messages are sent AS the user by overriding
+// with user_id="skyutils-bot"). Messages are sent AS the user by overriding
 // username and avatar_url — so they appear as real Discord users.
 // ---------------------------------------------------------------------------
 
@@ -110,7 +110,7 @@ export const Route = createFileRoute("/api/global-chat/send")({
         // Broadcast to all connected website clients immediately
         notifyGlobalChat({ type: "message", message });
 
-        // Mirror to Discord via the bot's single webhook (stored with user_id="rexware-bot").
+        // Mirror to Discord via the bot's single webhook (stored with user_id="skyutils-bot").
         // Discord shows the message with the user's name and avatar via webhook override.
         const chatConfig = getGlobalChatConfig();
         if (chatConfig) {

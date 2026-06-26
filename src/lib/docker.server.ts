@@ -29,17 +29,17 @@ function withTimeout<T>(label: string, promise: Promise<T>): Promise<T> {
   });
 }
 
-export const PROJECT_LABEL = "rexware.project";
+export const PROJECT_LABEL = "skyutils.project";
 export const PROJECT_NAME =
   process.env.DOCKER_PROJECT_LABEL?.trim() || "beam-bot-hub";
 
 export const LABELS = {
   project: PROJECT_LABEL,
-  kind: "rexware.kind",
-  runId: "rexware.run_id",
-  userId: "rexware.user_id",
-  pluginId: "rexware.plugin_id",
-  createdAt: "rexware.created_at",
+  kind: "skyutils.kind",
+  runId: "skyutils.run_id",
+  userId: "skyutils.user_id",
+  pluginId: "skyutils.plugin_id",
+  createdAt: "skyutils.created_at",
 } as const;
 
 export class DockerUnavailableError extends Error {
@@ -50,7 +50,7 @@ export class DockerUnavailableError extends Error {
 }
 
 function botImage(): string {
-  return process.env.BOT_IMAGE?.trim() || "rexware/bot:latest";
+  return process.env.BOT_IMAGE?.trim() || "skyutils/bot:latest";
 }
 
 /**
@@ -60,11 +60,11 @@ function botImage(): string {
  * docker-compose.yml.
  */
 function mcBotImage(): string {
-  return process.env.MC_BOT_IMAGE?.trim() || "rexware/mcbot:latest";
+  return process.env.MC_BOT_IMAGE?.trim() || "skyutils/mcbot:latest";
 }
 
 function stateVolume(): string {
-  return process.env.BOT_STATE_VOLUME?.trim() || "rexware_bot_state";
+  return process.env.BOT_STATE_VOLUME?.trim() || "skyutils_bot_state";
 }
 
 /**
@@ -237,7 +237,7 @@ export interface StartPluginContainerInput {
 export async function startPluginContainer(
   input: StartPluginContainerInput,
 ): Promise<string> {
-  const name = `rexware_run_${input.runId}`.slice(0, 60);
+  const name = `skyutils_run_${input.runId}`.slice(0, 60);
   const network = await runnerNetwork();
 
   const env = [
@@ -311,7 +311,7 @@ export interface StartBotContainerInput {
 export async function startBotContainer(
   input: StartBotContainerInput,
 ): Promise<string> {
-  const name = `rexware_bot_${input.runId}`.slice(0, 60);
+  const name = `skyutils_bot_${input.runId}`.slice(0, 60);
   const network = await runnerNetwork();
 
   const env = [

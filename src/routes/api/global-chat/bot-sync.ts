@@ -40,11 +40,11 @@ export const Route = createFileRoute("/api/global-chat/bot-sync")({
           return Response.json({ error: "missing fields" }, { status: 400 });
         }
 
-        // Enrich with RexWare user data if this Discord user has an account.
-        // Prefer the RexWare avatar/username over the raw Discord data.
-        const rexwareUser = await usersRepo.byDiscordId(userId).catch(() => null);
-        const resolvedUsername = rexwareUser?.username ?? username;
-        const resolvedAvatarUrl = rexwareUser?.avatar_url ?? avatarUrl;
+        // Enrich with SkyUtils user data if this Discord user has an account.
+        // Prefer the SkyUtils avatar/username over the raw Discord data.
+        const skyutilsUser = await usersRepo.byDiscordId(userId).catch(() => null);
+        const resolvedUsername = skyutilsUser?.username ?? username;
+        const resolvedAvatarUrl = skyutilsUser?.avatar_url ?? avatarUrl;
 
         const message = await globalChatRepo.post({
           userId,

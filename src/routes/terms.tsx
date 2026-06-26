@@ -4,8 +4,8 @@ import { ArrowLeft } from "lucide-react";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms of Service — RexWare" },
-      { name: "description", content: "RexWare Terms of Service." },
+      { title: "Terms of Service — SkyUtils" },
+      { name: "description", content: "SkyUtils Terms of Service." },
     ],
   }),
   component: TermsPage,
@@ -36,8 +36,8 @@ function TermsPage() {
 
       <div className="mt-8 space-y-8">
         <Section title="1. Acceptance of Terms">
-          <p>By accessing or using RexWare Services, you agree to be bound by these Terms. If you disagree, you may not access the Service.</p>
-          <p>RexWare may update these Terms at any time. Continued use constitutes acceptance.</p>
+          <p>By accessing or using SkyUtils Services, you agree to be bound by these Terms. If you disagree, you may not access the Service.</p>
+          <p>SkyUtils may update these Terms at any time. Continued use constitutes acceptance.</p>
         </Section>
 
         <Section title="2. Eligibility">
@@ -45,7 +45,7 @@ function TermsPage() {
         </Section>
 
         <Section title="3. Service Description">
-          <p>RexWare provides a platform to deploy and manage automated Minecraft bots. RexWare assumes no responsibility for any illegal activities committed in connection with the service.</p>
+          <p>SkyUtils provides a platform to deploy and manage automated Minecraft bots. SkyUtils assumes no responsibility for any illegal activities committed in connection with the service.</p>
         </Section>
 
         <Section title="4. User Accounts">
@@ -75,11 +75,11 @@ function TermsPage() {
         </Section>
 
         <Section title="8. Disclaimer of Warranties">
-          <p>The Service is provided "AS IS" without warranties. RexWare does not guarantee uninterrupted or error-free operation. You assume all risks of account bans.</p>
+          <p>The Service is provided "AS IS" without warranties. SkyUtils does not guarantee uninterrupted or error-free operation. You assume all risks of account bans.</p>
         </Section>
 
         <Section title="9. Limitation of Liability">
-          <p>To the maximum extent permitted by law, RexWare shall not be liable for indirect, incidental, or consequential damages. Total liability does not exceed amounts paid by you in the last 12 months.</p>
+          <p>To the maximum extent permitted by law, SkyUtils shall not be liable for indirect, incidental, or consequential damages. Total liability does not exceed amounts paid by you in the last 12 months.</p>
         </Section>
       </div>
     </div>

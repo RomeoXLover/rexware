@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# RexWare full stack.
+# SkyUtils full stack.
 #
 #   db          — PostgreSQL. Shared by `web` and `discord-bot`. Internal-only.
 #   web         — the TanStack Start site + admin + API.
@@ -38,13 +38,13 @@ services:
     image: postgres:16-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-rexware}
+      POSTGRES_USER: ${POSTGRES_USER:-skyutils}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB:-rexware}
+      POSTGRES_DB: ${POSTGRES_DB:-skyutils}
     volumes:
-      - rexware_pgdata:/var/lib/postgresql/data
+      - skyutils_pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rexware} -d ${POSTGRES_DB:-rexware}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-skyutils} -d ${POSTGRES_DB:-skyutils}"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -55,7 +55,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: rexware/web:latest
+    image: skyutils/web:latest
     restart: unless-stopped
     depends_on:
       db:
@@ -69,13 +69,13 @@ services:
       PORT: "3000"
       # Running behind a reverse proxy: trust X-Forwarded-* / CF headers.
       TRUST_PROXY: "1"
-      DATABASE_URL: postgres://${POSTGRES_USER:-rexware}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-rexware}
+      DATABASE_URL: postgres://${POSTGRES_USER:-skyutils}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-skyutils}
       # Docker orchestration
       DOCKER_SOCKET: /var/run/docker.sock
       DOCKER_PROJECT_LABEL: beam-bot-hub
-      BOT_IMAGE: rexware/bot:latest
-      MC_BOT_IMAGE: rexware/mcbot:latest
-      BOT_STATE_VOLUME: rexware_bot_state
+      BOT_IMAGE: skyutils/bot:latest
+      MC_BOT_IMAGE: skyutils/mcbot:latest
+      BOT_STATE_VOLUME: skyutils_bot_state
       # The bot containers POST status here. They join the compose network so the
       # "web" service DNS name resolves internally —
       # without it they land on the default bridge where "web" is unknown.
@@ -110,7 +110,7 @@ services:
   # It shares the Postgres database with `web` (they communicate through the
   # dm_queue table) and must be the ONLY place this token logs in.
   discord-bot:
-    image: rexware/web:latest
+    image: skyutils/web:latest
     restart: unless-stopped
     depends_on:
       db:
@@ -120,7 +120,7 @@ services:
     command: ["npx", "tsx", "src/bot/index.ts"]
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgres://${POSTGRES_USER:-rexware}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-rexware}
+      DATABASE_URL: postgres://${POSTGRES_USER:-skyutils}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-skyutils}
       APP_BASE_URL: ${APP_BASE_URL}
       DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
       DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN}
@@ -135,31 +135,31 @@ services:
     networks:
       - app-net
 
-  # Build-only: produces rexware/bot:latest. `web` launches containers from it.
+  # Build-only: produces skyutils/bot:latest. `web` launches containers from it.
   bot:
     build:
       context: ./docker/bot
       dockerfile: Dockerfile
-    image: rexware/bot:latest
+    image: skyutils/bot:latest
     # Never run on its own — it's a per-run image launched by the site.
     command: ["--help"]
     restart: "no"
     profiles:
       - build-only
 
-  # Build-only: produces rexware/mcbot:latest — the Rust Minecraft beam bot
+  # Build-only: produces skyutils/mcbot:latest — the Rust Minecraft beam bot
   # (`feather-bot`). `web` launches one container per deployed bot from this
   # image, injecting the per-bot config via the BOT_CONFIG_JSON env var.
   mcbot:
     build:
       context: ./bot
       dockerfile: Dockerfile
-    image: rexware/mcbot:latest
+    image: skyutils/mcbot:latest
     # Never run on its own — it's a per-bot image launched by the site.
     restart: "no"
     profiles:
       - build-only
 
 volumes:
-  rexware_pgdata:
-  rexware_bot_state:
+  skyutils_pgdata:
+  skyutils_bot_state:

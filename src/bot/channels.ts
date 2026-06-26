@@ -1,5 +1,5 @@
 /**
- * RexWare Discord Bot — channel-specific automations.
+ * SkyUtils Discord Bot — channel-specific automations.
  *
  *   1. Media-only channel  — only image attachments are allowed. Anything else
  *      (plain text, links, non-image files) is deleted and the author is DM'd.
