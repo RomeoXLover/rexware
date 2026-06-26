@@ -85,7 +85,7 @@ export function SplashLogo() {
           }}
         >
           <span className="text-sm font-medium tracking-[0.35em] text-foreground/90 uppercase">
-            REXWARE
+            SKYUTILS
           </span>
 
           {/* Animated bar */}
