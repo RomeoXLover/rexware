@@ -1,0 +1,44 @@
+# docker-compose per gestire piu' bot dalla STESSA immagine.
+#
+# L'immagine viene compilata UNA volta (build: .) e riusata da tutti i servizi:
+# ogni bot e' solo un container in piu' che monta la sua config.
+#
+# Uso:
+#   docker compose build           # compila l'immagine una sola volta
+#   docker compose up -d           # avvia tutti i bot
+#   docker compose logs -f bot1    # log di un bot
+#   docker compose restart bot1    # riavvia un bot
+#   docker compose down            # ferma tutto
+#
+# Per aggiungere un bot: copia un blocco, cambia nome servizio, container_name
+# e il file di config montato. Crea il file di config corrispondente accanto a
+# questo file (es. bot2_config.json).
+
+services:
+  bot1:
+    build: .
+    image: feather-bot          # nome immagine condivisa: build una volta sola
+    container_name: feather-bot1
+    restart: unless-stopped
+    volumes:
+      - ./feather_config.json:/app/feather_config.json:ro
+    # Log piu' puliti: limita la dimensione dei file di log di docker.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # --- Esempio di secondo bot (decommenta e crea bot2_config.json) ---
+  # bot2:
+  #   image: feather-bot         # riusa l'immagine gia' compilata da bot1
+  #   container_name: feather-bot2
+  #   restart: unless-stopped
+  #   depends_on: [bot1]         # assicura che l'immagine sia costruita
+  #   volumes:
+  #     - ./bot2_config.json:/app/feather_config.json:ro
+  #   logging:
+  #     driver: json-file
+  #     options:
+  #       max-size: "10m"
+  #       max-file: "3"

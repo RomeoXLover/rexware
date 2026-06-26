@@ -1,0 +1,1659 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Fonts ─── */
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Menlo', monospace;
+
+  --radius-sm:  calc(var(--radius) - 4px);
+  --radius-md:  calc(var(--radius) - 2px);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background:             var(--background);
+  --color-foreground:             var(--foreground);
+  --color-card:                   var(--card);
+  --color-card-foreground:        var(--card-foreground);
+  --color-popover:                var(--popover);
+  --color-popover-foreground:     var(--popover-foreground);
+  --color-primary:                var(--primary);
+  --color-primary-foreground:     var(--primary-foreground);
+  --color-secondary:              var(--secondary);
+  --color-secondary-foreground:   var(--secondary-foreground);
+  --color-muted:                  var(--muted);
+  --color-muted-foreground:       var(--muted-foreground);
+  --color-accent:                 var(--accent);
+  --color-accent-foreground:      var(--accent-foreground);
+  --color-destructive:            var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border:                 var(--border);
+  --color-input:                  var(--input);
+  --color-ring:                   var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1:                var(--chart-1);
+  --color-chart-2:                var(--chart-2);
+  --color-chart-3:                var(--chart-3);
+  --color-chart-4:                var(--chart-4);
+  --color-chart-5:                var(--chart-5);
+  --color-sidebar:                var(--sidebar);
+  --color-sidebar-foreground:     var(--sidebar-foreground);
+  --color-sidebar-primary:        var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent:         var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:         var(--sidebar-border);
+  --color-sidebar-ring:           var(--sidebar-ring);
+}
+
+/* ─── Apple Dark design tokens ─── */
+:root {
+  --radius: 1.125rem;
+
+  /* Brand hue — crisp clean azure for a fresh, premium feel */
+  --brand-hue: 215;
+
+  /* Soft dark-blue canvas — cleaner and brighter than pure black */
+  --background:             oklch(0.22 0.018 215);
+  --foreground:             oklch(0.99 0.002 215);
+
+  /* Elevated surfaces — glassy, clearly separated from the base */
+  --card:                   oklch(0.27 0.02 215);
+  --card-foreground:        oklch(0.99 0.002 215);
+  --popover:                oklch(0.28 0.022 215);
+  --popover-foreground:     oklch(0.99 0.002 215);
+
+  /* Primary: bright azure-white */
+  --primary:                oklch(0.97 0.015 215);
+  --primary-foreground:     oklch(0.17 0.025 220);
+
+  /* Secondary: tinted cool slate */
+  --secondary:              oklch(0.30 0.022 215);
+  --secondary-foreground:   oklch(0.96 0.01 215);
+
+  /* Muted surfaces — slightly lighter than cards */
+  --muted:                  oklch(0.265 0.02 215);
+  --muted-foreground:       oklch(0.72 0.02 215);
+
+  /* Accent — saturated azure for highlighted elements */
+  --accent:                 oklch(0.38 0.06 215);
+  --accent-foreground:      oklch(0.96 0.01 215);
+
+  /* Destructive */
+  --destructive:            oklch(0.62 0.21 22);
+  --destructive-foreground: oklch(0.97 0 0);
+
+  /* Borders — crisp, light, barely-there hairline */
+  --border: oklch(0.88 0.025 215 / 12%);
+  --input:  oklch(0.88 0.025 215 / 15%);
+  --ring:   oklch(0.65 0.16 215);
+
+  /* Charts — cool blue / cyan spread */
+  --chart-1: oklch(0.72 0.12 215);
+  --chart-2: oklch(0.72 0.11 195);
+  --chart-3: oklch(0.74 0.10 170);
+  --chart-4: oklch(0.76 0.11 100);
+  --chart-5: oklch(0.70 0.13 320);
+
+  /* Sidebar */
+  --sidebar:                    oklch(0.19 0.015 215);
+  --sidebar-foreground:         oklch(0.98 0.002 215);
+  --sidebar-primary:            oklch(0.96 0.01 215);
+  --sidebar-primary-foreground: oklch(0.17 0.025 220);
+  --sidebar-accent:             oklch(0.30 0.025 215);
+  --sidebar-accent-foreground:  oklch(0.96 0.01 215);
+  --sidebar-border:             oklch(0.88 0.025 215 / 10%);
+  --sidebar-ring:               oklch(0.65 0.16 215);
+
+  /* Semantic extras — brighter, cleaner azure */
+  --gradient-hero:    radial-gradient(ellipse 80% 50% at 50% -5%, oklch(0.45 0.08 215 / 0.55), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.95 0.02 215), oklch(0.70 0.08 215));
+  --glow-primary:     0 0 52px oklch(0.60 0.15 215 / 0.20);
+  --shadow-card:      0 1px 0 oklch(1 0 0 / 0.06), 0 8px 32px oklch(0.05 0.02 215 / 0.55);
+}
+
+/* ─── Light theme — applied when <html class="light"> ─── */
+.light {
+  --background:             oklch(0.985 0.004 215);
+  --foreground:             oklch(0.22 0.018 215);
+
+  --card:                   oklch(1 0 0);
+  --card-foreground:        oklch(0.22 0.018 215);
+  --popover:                oklch(1 0 0);
+  --popover-foreground:     oklch(0.22 0.018 215);
+
+  /* Primary flips to a deep azure with white text */
+  --primary:                oklch(0.30 0.05 215);
+  --primary-foreground:     oklch(0.99 0.002 215);
+
+  --secondary:              oklch(0.95 0.008 215);
+  --secondary-foreground:   oklch(0.30 0.05 215);
+
+  --muted:                  oklch(0.955 0.005 215);
+  --muted-foreground:       oklch(0.48 0.018 215);
+
+  --accent:                 oklch(0.92 0.03 215);
+  --accent-foreground:      oklch(0.30 0.05 215);
+
+  --destructive:            oklch(0.58 0.21 22);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.2 0.04 215 / 10%);
+  --input:  oklch(0.2 0.04 215 / 14%);
+  --ring:   oklch(0.55 0.14 215);
+
+  --sidebar:                    oklch(0.97 0.005 215);
+  --sidebar-foreground:         oklch(0.28 0.03 215);
+  --sidebar-primary:            oklch(0.30 0.05 215);
+  --sidebar-primary-foreground: oklch(0.99 0.002 215);
+  --sidebar-accent:             oklch(0.92 0.02 215);
+  --sidebar-accent-foreground:  oklch(0.30 0.05 215);
+  --sidebar-border:             oklch(0.2 0.04 215 / 8%);
+  --sidebar-ring:               oklch(0.55 0.14 215);
+
+  --gradient-hero:    radial-gradient(ellipse 80% 50% at 50% -5%, oklch(0.72 0.08 215 / 0.38), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.45 0.06 215), oklch(0.58 0.07 215));
+  --glow-primary:     0 0 52px oklch(0.60 0.15 215 / 0.14);
+  --shadow-card:      0 1px 0 oklch(1 0 0 / 0.6), 0 8px 32px oklch(0.5 0.05 215 / 0.12);
+}
+
+/* ─── Base ─── */
+html {
+  font-size: 16.5px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: oklch(0.22 0.018 215);
+}
+html.light {
+  background-color: oklch(0.985 0.004 215);
+}
+.light body {
+  background-image:
+    radial-gradient(
+      ellipse 95% 55% at 50% 118%,
+      oklch(0.62 0.1 215 / 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 45% at 85% 108%,
+      oklch(0.65 0.1 200 / 0.07),
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 75% 40% at 50% -8%,
+      oklch(0.70 0.06 215 / 0.08),
+      transparent 70%
+    );
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html {
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(
+        ellipse 95% 55% at 50% 118%,
+        oklch(0.52 0.13 215 / 0.28),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 70% 45% at 85% 108%,
+        oklch(0.58 0.12 200 / 0.16),
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 75% 40% at 50% -8%,
+        oklch(0.48 0.08 215 / 0.18),
+        transparent 70%
+      );
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--color-foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    letter-spacing: -0.011em;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ─── Noise texture overlay ─── */
+.ac-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─────────────────────────────
+   KEYFRAMES
+───────────────────────────── */
+
+@keyframes ac-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ac-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes ac-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ac-glow-drift {
+  0%,100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+  50%     { transform: translate3d(0,-18px,0) scale(1.04); opacity: 0.8; }
+}
+@keyframes ac-pulse {
+  0%,100% { transform: scale(1); opacity: 0.8; }
+  50%     { transform: scale(1.07); opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-ring {
+  0%,100% { box-shadow: 0 0 0 0 oklch(1 0 0 / 0.06); }
+  50%     { box-shadow: 0 0 0 8px oklch(1 0 0 / 0); }
+}
+@keyframes shimmer-slide {
+  0%   { transform: translateX(-100%) skewX(-8deg); }
+  100% { transform: translateX(220%) skewX(-8deg); }
+}
+@keyframes scan {
+  0%   { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* Cinematic entrance animations */
+@keyframes ac-splash-in {
+  0%   { opacity: 0; transform: scale(0.82) translateY(8px); filter: blur(16px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+@keyframes ac-splash-word {
+  0%   { opacity: 0; transform: translateY(10px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes ac-splash-bar {
+  0%   { width: 0; opacity: 0; }
+  40%  { opacity: 1; }
+  100% { width: 48px; opacity: 0.45; }
+}
+@keyframes ac-splash-exit {
+  0%   { opacity: 1; transform: scale(1); filter: blur(0); }
+  100% { opacity: 0; transform: scale(1.06); filter: blur(12px); }
+}
+
+/* Line draw for decorative elements */
+@keyframes ac-line-draw {
+  from { stroke-dashoffset: 1000; opacity: 0; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* Counter tick */
+@keyframes ac-tick-up {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Background mesh drift */
+@keyframes ac-mesh-drift-1 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33%     { transform: translate(30px, -20px) scale(1.04); }
+  66%     { transform: translate(-15px, 10px) scale(0.98); }
+}
+@keyframes ac-mesh-drift-2 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  33%     { transform: translate(-25px, 15px) scale(1.03); }
+  66%     { transform: translate(20px, -30px) scale(0.97); }
+}
+@keyframes ac-mesh-drift-3 {
+  0%,100% { transform: translate(0, 0) scale(1); }
+  50%     { transform: translate(18px, 22px) scale(1.02); }
+}
+
+/* Spinner for loading states */
+@keyframes ac-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Maintenance: floating bubbles ─── */
+@keyframes ac-bubble-float {
+  0%   { transform: translateY(0) translateX(0) scale(1); }
+  33%  { transform: translateY(-40px) translateX(18px) scale(1.05); }
+  66%  { transform: translateY(-18px) translateX(-22px) scale(0.96); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+@keyframes ac-bubble-rise {
+  0%   { transform: translateY(20vh) scale(0.6); opacity: 0; }
+  15%  { opacity: 0.6; }
+  85%  { opacity: 0.6; }
+  100% { transform: translateY(-90vh) scale(1.1); opacity: 0; }
+}
+.ac-bubble {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 28%, oklch(1 0 0 / 0.18), oklch(1 0 0 / 0.04) 60%, transparent 72%);
+  border: 1px solid oklch(1 0 0 / 0.08);
+  backdrop-filter: blur(2px);
+  will-change: transform, opacity;
+}
+.ac-bubble-float { animation: ac-bubble-float 16s ease-in-out infinite; }
+.ac-bubble-rise  { animation: ac-bubble-rise 22s linear infinite; }
+
+@keyframes ac-icon-breathe {
+  0%,100% { transform: scale(1); box-shadow: 0 0 0 0 oklch(1 0 0 / 0.10); }
+  50%     { transform: scale(1.04); box-shadow: 0 0 40px 4px oklch(1 0 0 / 0.10); }
+}
+.ac-icon-breathe { animation: ac-icon-breathe 4.5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-bubble-float,
+  .ac-bubble-rise,
+  .ac-icon-breathe {
+    animation: none !important;
+  }
+}
+
+/* Nav item active indicator slide */
+@keyframes ac-indicator-in {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* Card tilt shadow bloom */
+@keyframes ac-shadow-bloom {
+  from { box-shadow: 0 4px 16px oklch(0 0 0 / 0.4); }
+  to   { box-shadow: 0 16px 48px oklch(0 0 0 / 0.65), 0 0 0 1px oklch(1 0 0 / 0.09); }
+}
+
+/* Typing cursor blink */
+@keyframes ac-cursor {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+
+/* Stagger badge pop */
+@keyframes ac-badge-pop {
+  0%   { transform: scale(0.7) translateY(4px); opacity: 0; }
+  70%  { transform: scale(1.08) translateY(-1px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Horizontal marquee */
+@keyframes ac-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─────────────────────────────
+   SECTION REVEAL (IntersectionObserver-driven)
+   Sections start invisible and get .is-visible added by JS.
+   Fallback: if JS never runs, sections are still visible (no hidden state).
+───────────────────────────── */
+
+/* Hidden state — only applies once JS marks the section as reveal-pending */
+.ac-section-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+/* Entrance when .is-visible is added */
+.ac-section-hidden.is-visible {
+  animation: ac-section-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes ac-section-enter {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Feature card parallax tilt — JS sets --tilt-x / --tilt-y via CSS vars */
+.ac-tilt-card {
+  transform: perspective(800px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(0);
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.18s ease;
+  will-change: transform;
+}
+
+/* Glow pulse ring */
+@keyframes ac-ring-pulse {
+  0%   { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+/* ─────────────────────────────
+   INTERACTIVE SPOTLIGHT + TILT
+   JS sets --mx/--my (cursor %) and --tilt-x/--tilt-y on .ac-spotlight.
+─────────────�����������─────────────── */
+.ac-spotlight {
+  transform: perspective(900px)
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg))
+    translateZ(0);
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  will-change: transform;
+}
+.ac-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 0%),
+    oklch(1 0 0 / 0.10),
+    oklch(0.7 0 0 / 0.05) 35%,
+    transparent 65%
+  );
+  z-index: 0;
+}
+.ac-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ─── Animated aurora blob (hero ambience — clean azure tones) ─── */
+.ac-aurora {
+  background:
+    radial-gradient(40% 55% at 30% 35%, oklch(0.55 0.04 215 / 0.25), transparent 70%),
+    radial-gradient(45% 50% at 72% 28%, oklch(0.58 0.04 200 / 0.20), transparent 70%),
+    radial-gradient(50% 60% at 50% 70%, oklch(0.52 0.03 220 / 0.18), transparent 72%);
+  filter: blur(36px);
+  animation: ac-aurora-drift 18s ease-in-out infinite alternate;
+}
+@keyframes ac-aurora-drift {
+  0%   { transform: translate3d(-4%, -2%, 0) scale(1); }
+  50%  { transform: translate3d(3%, 2%, 0) scale(1.08); }
+  100% { transform: translate3d(2%, -3%, 0) scale(1.03); }
+}
+
+/* ─── Rotating gradient border (Pro pricing card) ─── */
+.ac-grad-border {
+  position: relative;
+}
+.ac-grad-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    oklch(0.90 0 0 / 0.6),
+    oklch(0.45 0.015 215 / 0.15) 25%,
+    oklch(0.90 0 0 / 0.45) 50%,
+    oklch(0.45 0.015 215 / 0.15) 75%,
+    oklch(0.90 0 0 / 0.6)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: ac-border-spin 6s linear infinite;
+  pointer-events: none;
+}
+@property --ang {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes ac-border-spin {
+  to { --ang: 360deg; }
+}
+
+/* ─── Colorful rotating glow ring (login card) ─── */
+.ac-login-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    oklch(0.72 0.14 215 / 0.85),
+    oklch(0.70 0.12 200 / 0.2) 24%,
+    oklch(0.75 0.15 260 / 0.7) 50%,
+    oklch(0.70 0.12 200 / 0.2) 76%,
+    oklch(0.72 0.14 215 / 0.85)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: ac-border-spin 7s linear infinite;
+  pointer-events: none;
+}
+/* Soft colored halo bloom around the card */
+.ac-login-ring::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    oklch(0.72 0.14 215 / 0.5),
+    transparent 30%,
+    oklch(0.75 0.15 260 / 0.4) 50%,
+    transparent 70%,
+    oklch(0.72 0.14 215 / 0.5)
+  );
+  filter: blur(16px);
+  opacity: 0.55;
+  animation: ac-border-spin 7s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-aurora,
+  .ac-grad-border::before,
+  .ac-login-ring::before,
+  .ac-login-ring::after {
+    animation: none !important;
+  }
+  .ac-spotlight {
+    transform: none !important;
+  }
+}
+
+/* ─────────────────────────────
+   SCROLL REVEAL
+   Uses CSS animation-based reveal so content is ALWAYS visible,
+   even if IntersectionObserver never fires (TOS gate, SSR, etc).
+───────────────────────────── */
+
+.ac-reveal,
+.ac-reveal-blur,
+.ac-reveal-left,
+.ac-reveal-right {
+  animation: ac-rise 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* animation-delay is set inline per element for staggering */
+}
+
+.ac-reveal-blur {
+  animation-name: ac-fade-in;
+  animation-duration: 0.96s;
+}
+
+.ac-reveal-left {
+  animation-name: ac-reveal-from-left;
+}
+
+.ac-reveal-right {
+  animation-name: ac-reveal-from-right;
+}
+
+@keyframes ac-reveal-from-left {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes ac-reveal-from-right {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Hover lift on cards (no longer blocked by is-visible requirement) */
+.ac-reveal.group,
+.ac-reveal.pricing-card {
+  transition:
+    transform     0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color  0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background    0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow    0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ac-reveal.group:hover,
+.ac-reveal.pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Keep is-visible class as no-op so any leftover JS doesn't break */
+.ac-reveal.is-visible,
+.ac-reveal-blur.is-visible,
+.ac-reveal-left.is-visible,
+.ac-reveal-right.is-visible {
+  /* intentionally empty — animation handles visibility */
+}
+
+/* ─────────────────────────────
+   APPLE-STYLE FEATURE CARD ENTRANCE
+   Each card hides itself (offset to a side, blurred, scaled down) and reveals
+   the moment it scrolls into view — JS adds `.is-in` per card via an
+   IntersectionObserver. Paired cards in the same row cross the threshold
+   together, so they slide in from opposite sides as a choreographed pair.
+
+   Reveal uses the independent `translate` / `scale` properties (NOT the
+   `transform` shorthand) so it composes cleanly with the spotlight tilt that
+   drives `transform` on the same element. Direction & intra-pair stagger come
+   from the --feat-dir / --feat-delay custom properties.
+───────────────────────────── */
+.ac-feat {
+  opacity: 0;
+  translate: var(--feat-dir, -48px) 0;
+  scale: 0.94;
+  filter: blur(10px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    scale 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.6s ease-out;
+  transition-delay: var(--feat-delay, 0ms);
+  will-change: opacity, translate, scale, filter;
+}
+.ac-feat.is-in {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+  filter: blur(0);
+}
+
+/* ─────────────────────────────
+   INTERACTIVE COMPONENTS
+───────────────────────────── */
+
+/* Shimmer on button hover */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset-y: 0;
+  left: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.12), transparent);
+  transform: translateX(-100%) skewX(-8deg);
+  transition: none;
+}
+.btn-shimmer:hover::after {
+  animation: shimmer-slide 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Magnetic button base — JS handles the actual transform */
+.btn-magnetic {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Ambient glow drift */
+.ac-glow {
+  animation: ac-glow-drift 14s ease-in-out infinite;
+}
+
+/* Mesh blobs */
+.ac-mesh-1 { animation: ac-mesh-drift-1 22s ease-in-out infinite; }
+.ac-mesh-2 { animation: ac-mesh-drift-2 28s ease-in-out infinite; }
+.ac-mesh-3 { animation: ac-mesh-drift-3 18s ease-in-out infinite; }
+
+/* Nav active indicator */
+.ac-nav-indicator {
+  transform-origin: left center;
+  animation: ac-indicator-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Glow ring on avatar/icons */
+.ac-ring-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1px solid oklch(1 0 0 / 0.22);
+  animation: ac-ring-pulse 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* ─── Discord-style scrollbar ─── */
+/* Thin, colored thumb — visible but unobtrusive. Use .no-scrollbar on elements
+   where you truly want no scrollbar (e.g. message containers that auto-scroll). */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: oklch(0.40 0.02 215 / 0.50);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.55 0.03 215 / 0.70);
+}
+
+/* Hide scrollbar utility — for containers that auto-scroll and should never show a bar */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ─── Dashboard / admin minimal entrance animations ─── */
+/* Tab panel re-mounts on tab change (via React key) for a subtle fade-up. */
+.ac-tab-panel {
+  animation: fadeUp 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Oversized display headline — optical tracking + tighter leading.
+   Used for the big dashboard page titles to feel "large & clean". */
+.ac-display {
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  font-weight: 600;
+}
+
+/* Reusable masked grid texture for empty-state / hero surfaces.
+   Apply to an absolutely-positioned overlay div. */
+.ac-grid-bg {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.12) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 65% at 50% 42%, black, transparent 80%);
+  mask-image: radial-gradient(ellipse 60% 65% at 50% 42%, black, transparent 80%);
+}
+
+  /* Soft top-down ambient glow for the main content surface. */
+.ac-dash-ambient {
+  background:
+    radial-gradient(ellipse 60% 40% at 22% -10%, oklch(0.60 0.18 215 / 0.32), transparent 70%),
+    radial-gradient(ellipse 55% 38% at 82% -8%, oklch(0.66 0.15 200 / 0.24), transparent 70%);
+}
+
+/* Staggered fade-up for table rows / list items. */
+.ac-row-stagger {
+  animation: fadeUp 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Soft entrance for the stat card grid. */
+.ac-stat-in {
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Richer dashboard motion system (Apple-grade, but more alive) ─── */
+
+/* Card-scoped grid texture: subtle, masked toward the top so content stays clean. */
+.ac-grid-card {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 85% 0%, black, transparent 78%);
+  mask-image: radial-gradient(ellipse 95% 85% at 85% 0%, black, transparent 78%);
+}
+
+/* Larger-cell variant for bigger cards — squares ~1cm so the grid reads at
+   the same density as the small cards do on their smaller surfaces. */
+.ac-grid-card-lg {
+  background-size: 38px 38px;
+}
+
+/* Slowly drifting grid — gives surfaces a living, depth-y feel. */
+.ac-grid-pan {
+  animation: acGridPan 32s linear infinite;
+}
+@keyframes acGridPan {
+  from { background-position: 0 0; }
+  to   { background-position: 26px 26px; }
+}
+
+/* Gentle vertical float for hero/empty-state icons. */
+.ac-float {
+  animation: acFloat 6s ease-in-out infinite;
+}
+@keyframes acFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+/* Breathing ambient glow. */
+.ac-glow-pulse {
+  animation: acGlowPulse 7s ease-in-out infinite;
+}
+@keyframes acGlowPulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.06); }
+}
+
+/* Hover lift used across interactive cards. */
+.ac-lift {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease,
+    background-color 0.28s ease,
+    box-shadow 0.28s ease;
+  will-change: transform;
+}
+.ac-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Diagonal sheen that sweeps across a card on hover. */
+.ac-sheen { position: relative; overflow: hidden; }
+.ac-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    oklch(1 0 0 / 0.07) 48%,
+    oklch(1 0 0 / 0.12) 50%,
+    oklch(1 0 0 / 0.07) 52%,
+    transparent 70%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.ac-sheen:hover::after {
+  transform: translateX(130%);
+}
+
+/* Premium icon tile — soft brushed-metal surface with a faint azure lift,
+   a crisp top highlight, and an accent glow that blooms on group hover.
+   Use in place of `border border-border bg-background` on icon containers. */
+.ac-icon-tile {
+  position: relative;
+  border: 1px solid oklch(0.88 0.025 215 / 0.16);
+  background:
+    linear-gradient(160deg, oklch(0.97 0.01 215 / 0.1), oklch(0.5 0.03 215 / 0.04)),
+    var(--card);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.1),
+    0 1px 2px oklch(0 0 0 / 0.3);
+  color: var(--foreground);
+  transition:
+    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.34s ease,
+    box-shadow 0.34s ease;
+}
+.group:hover .ac-icon-tile {
+  transform: translateY(-1px) scale(1.06);
+  border-color: oklch(0.68 0.13 215 / 0.55);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.16),
+    0 6px 20px oklch(0.55 0.15 215 / 0.32),
+    0 0 0 1px oklch(0.68 0.13 215 / 0.18);
+}
+.ac-icon-tile svg {
+  position: relative;
+  transition: color 0.34s ease;
+}
+.group:hover .ac-icon-tile svg {
+  color: oklch(0.84 0.09 215);
+}
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .ac-icon-tile { transform: none; }
+}
+
+/* Staggered entrance — apply .ac-rise + a delay class. */
+.ac-rise {
+  animation: acRise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes acRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ac-d1 { animation-delay: 0.05s; }
+.ac-d2 { animation-delay: 0.12s; }
+.ac-d3 { animation-delay: 0.19s; }
+.ac-d4 { animation-delay: 0.26s; }
+.ac-d5 { animation-delay: 0.33s; }
+.ac-d6 { animation-delay: 0.40s; }
+.ac-d7 { animation-delay: 0.47s; }
+.ac-d8 { animation-delay: 0.54s; }
+
+/* Hero headline — slowly drifting light across the gradient fill for a
+   premium, "alive" feel without being distracting. */
+.ac-hero-gradient {
+  background-size: 220% auto !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: ac-hero-shine 7s ease-in-out infinite;
+}
+@keyframes ac-hero-shine {
+  0%, 100% { background-position: 0% center; }
+  50%      { background-position: 100% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ac-hero-gradient { animation: none !important; }
+}
+
+/* Shimmering text gradient sweep — for special headlines/numbers. */
+.ac-shimmer {
+  background: linear-gradient(
+    100deg,
+    oklch(0.7 0 0) 20%,
+    oklch(0.99 0 0) 50%,
+    oklch(0.7 0 0) 80%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: acShimmer 6s linear infinite;
+}
+@keyframes acShimmer {
+  to { background-position: 200% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-tab-panel,
+  .ac-row-stagger,
+  .ac-stat-in,
+  .ac-grid-pan,
+  .ac-float,
+  .ac-glow-pulse,
+  .ac-rise,
+  .ac-shimmer {
+    animation: none !important;
+  }
+  .ac-lift:hover { transform: none !important; }
+  .ac-sheen::after { display: none !important; }
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .ac-reveal,
+  .ac-reveal-blur,
+  .ac-reveal-left,
+  .ac-reveal-right {
+    transition: opacity 0.3s ease;
+    transform: none !important;
+    filter: none !important;
+  }
+  .ac-glow,
+  .ac-mesh-1,
+  .ac-mesh-2,
+  .ac-mesh-3 {
+    animation: none !important;
+  }
+  .ac-section-hidden,
+  .ac-section-hidden.is-visible {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .ac-feat,
+  .ac-feat.is-in {
+    transition: none !important;
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+    filter: none !important;
+  }
+  .ac-tilt-card {
+    transform: none !important;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   THEME PALETTES — SWITCHABLE COLOR THEMES
+   The :root vars define the DEFAULT (Nexora Violet).
+   CSS classes below override accent/bg vars for each palette.
+═════════════════════════════════════════════════════════════ */
+
+/* ─── Palette: Dark — neutral deep slate ─── */
+body.theme-dark {
+  --brand-hue: 215;
+  --background:         oklch(0.14 0.01 215);
+  --foreground:         oklch(0.97 0.003 215);
+  --card:               oklch(0.20 0.015 215);
+  --card-foreground:    oklch(0.97 0.003 215);
+  --primary:            oklch(0.97 0.015 215);
+  --primary-foreground: oklch(0.14 0.01 215);
+  --secondary:          oklch(0.26 0.02 215);
+  --secondary-foreground: oklch(0.92 0.01 215);
+  --accent:             oklch(0.38 0.05 215);
+  --accent-foreground:   oklch(0.97 0.003 215);
+  --border:   oklch(0.88 0.025 215 / 12%);
+  --ring:     oklch(0.55 0.14 215);
+  --gradient-hero:    radial-gradient(ellipse 80% 50% at 50% -5%, oklch(0.38 0.07 215 / 0.45), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.92 0.02 215), oklch(0.65 0.08 215));
+  --glow-primary:     0 0 52px oklch(0.55 0.15 215 / 0.18);
+  --shadow-card:      0 1px 0 oklch(1 0 0 / 0.05), 0 8px 32px oklch(0 0 0 / 0.5);
+  /* dashboard orbs */
+  --orb1-color: oklch(0.55 0.18 264 / 0.65);
+  --orb2-color: oklch(0.62 0.16 200 / 0.50);
+  --orb3-color: oklch(0.52 0.17 295 / 0.44);
+  --orb4-color: oklch(0.64 0.14 20  / 0.28);
+}
+
+/* ─── Palette: Neon — vibrant cyberpunk ─── */
+body.theme-neon {
+  --brand-hue: 300;
+  --background:         oklch(0.10 0.02 300);
+  --foreground:         oklch(0.97 0.003 300);
+  --card:               oklch(0.17 0.03 300);
+  --card-foreground:    oklch(0.97 0.003 300);
+  --primary:            oklch(0.72 0.22 310);
+  --primary-foreground: oklch(0.10 0.02 300);
+  --secondary:          oklch(0.25 0.04 300);
+  --secondary-foreground: oklch(0.92 0.01 300);
+  --accent:             oklch(0.60 0.22 160);
+  --accent-foreground:   oklch(0.10 0.02 300);
+  --border:   oklch(0.80 0.10 300 / 14%);
+  --ring:     oklch(0.72 0.22 310);
+  --gradient-hero:    radial-gradient(ellipse 80% 50% at 50% -5%, oklch(0.55 0.18 310 / 0.5), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.80 0.18 310), oklch(0.55 0.20 160));
+  --glow-primary:     0 0 52px oklch(0.72 0.22 310 / 0.28);
+  --shadow-card:      0 1px 0 oklch(1 0 0 / 0.05), 0 8px 32px oklch(0.30 0.10 300 / 0.4);
+  --orb1-color: oklch(0.65 0.22 310 / 0.70);
+  --orb2-color: oklch(0.60 0.20 160 / 0.55);
+  --orb3-color: oklch(0.55 0.18 240 / 0.45);
+  --orb4-color: oklch(0.62 0.20 20  / 0.30);
+}
+
+/* ─── Palette: Forest — deep greens ─── */
+body.theme-forest {
+  --brand-hue: 145;
+  --background:         oklch(0.12 0.015 145);
+  --foreground:         oklch(0.97 0.003 145);
+  --card:               oklch(0.18 0.02 145);
+  --card-foreground:    oklch(0.97 0.003 145);
+  --primary:            oklch(0.68 0.16 152);
+  --primary-foreground: oklch(0.12 0.015 145);
+  --secondary:          oklch(0.24 0.03 145);
+  --secondary-foreground: oklch(0.92 0.01 145);
+  --accent:             oklch(0.62 0.14 80);
+  --accent-foreground:   oklch(0.12 0.015 145);
+  --border:   oklch(0.78 0.08 145 / 12%);
+  --ring:     oklch(0.68 0.16 152);
+  --gradient-hero:    radial-gradient(ellipse 80% 50% at 50% -5%, oklch(0.50 0.14 152 / 0.45), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.60 0.12 152), oklch(0.55 0.13 80));
+  --glow-primary:     0 0 52px oklch(0.68 0.16 152 / 0.22);
+  --shadow-card:      0 1px 0 oklch(1 0 0 / 0.05), 0 8px 32px oklch(0.20 0.08 145 / 0.45);
+  --orb1-color: oklch(0.55 0.16 152 / 0.65);
+  --orb2-color: oklch(0.58 0.14 80  / 0.50);
+  --orb3-color: oklch(0.50 0.15 200 / 0.40);
+  --orb4-color: oklch(0.60 0.12 40  / 0.25);
+}
+
+/* ─── Palette: Sunset — warm oranges/reds ─── */
+body.theme-sunset {
+  --brand-hue: 28;
+  --background:         oklch(0.13 0.02 28);
+  --foreground:         oklch(0.97 0.003 28);
+  --card:               oklch(0.19 0.025 28);
+  --card-foreground:    oklch(0.97 0.003 28);
+  --primary:            oklch(0.75 0.18 38);
+  --primary-foreground: oklch(0.13 0.02 28);
+  --secondary:          oklch(0.26 0.035 28);
+  --secondary-foreground: oklch(0.92 0.01 28);
+  --accent:             oklch(0.70 0.18 280);
+  --accent-foreground:   oklch(0.13 0.02 28);
+  --border:   oklch(0.82 0.08 28 / 14%);
+  --ring:     oklch(0.75 0.18 38);
+  --gradient-hero:    radial-gradient(ellipse 80% 50% at 50% -5%, oklch(0.58 0.16 38 / 0.45), transparent 70%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.72 0.16 38), oklch(0.65 0.16 280));
+  --glow-primary:     0 0 52px oklch(0.75 0.18 38 / 0.22);
+  --shadow-card:      0 1px 0 oklch(1 0 0 / 0.05), 0 8px 32px oklch(0.15 0.08 28 / 0.5);
+  --orb1-color: oklch(0.62 0.18 38  / 0.65);
+  --orb2-color: oklch(0.65 0.16 15  / 0.50);
+  --orb3-color: oklch(0.55 0.17 280 / 0.45);
+  --orb4-color: oklch(0.60 0.14 180 / 0.25);
+}
+
+/* ═════════════════════════════════════════════════════════════
+   BACKGROUND EFFECTS
+   Applied via CSS custom properties + body class selectors.
+   User picks one; it replaces the default gradient body bg.
+═════════════════════════════════════════════════════════════ */
+
+/* Default: soft gradient (keep existing behaviour) */
+
+/* ─── Effect: Stars ─── */
+body.bg-stars {
+  background-color: var(--background) !important;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, oklch(1 0 0 / 0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 22% 68%, oklch(1 0 0 / 0.40) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 35% 42%, oklch(1 0 0 / 0.60) 0%, transparent 100%),
+    radial-gradient(1px 1px at 48% 80%, oklch(1 0 0 / 0.35) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 58% 25%, oklch(1 0 0 / 0.50) 0%, transparent 100%),
+    radial-gradient(1px 1px at 66% 55%, oklch(1 0 0 / 0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 90%, oklch(1 0 0 / 0.38) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 84% 35%, oklch(1 0 0 / 0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 70%, oklch(1 0 0 / 0.40) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 92%, oklch(1 0 0 / 0.35) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 30% 8%,  oklch(1 0 0 / 0.50) 0%, transparent 100%),
+    radial-gradient(1px 1px at 72% 12%, oklch(1 0 0 / 0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 48%, oklch(1 0 0 / 0.38) 0%, transparent 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* ─── Effect: Waves ─── */
+body.bg-waves::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 30% at 20% 95%, oklch(0.55 0.16 var(--brand-hue, 264) / 0.20), transparent 70%),
+    radial-gradient(ellipse 55% 28% at 75% 92%, oklch(0.58 0.14 var(--brand-hue, 264) / 0.16), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes ac-wave-1 {
+  0%,100% { transform: translateX(0) translateY(0); }
+  33%     { transform: translateX(8px) translateY(-6px); }
+  66%     { transform: translateX(-6px) translateY(4px); }
+}
+@keyframes ac-wave-2 {
+  0%,100% { transform: translateX(0) translateY(0); }
+  33%     { transform: translateX(-10px) translateY(5px); }
+  66%     { transform: translateX(7px) translateY(-4px); }
+}
+body.bg-waves {
+  background-color: var(--background) !important;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 100%, oklch(0.45 0.14 var(--brand-hue, 264) / 0.22), transparent 65%),
+    radial-gradient(ellipse 60% 40% at 20% 95%, oklch(0.50 0.12 var(--brand-hue, 264) / 0.15), transparent 60%);
+  background-attachment: fixed;
+}
+body.bg-waves .ac-dash-orb-1 { animation: ac-wave-1 18s ease-in-out infinite; }
+body.bg-waves .ac-dash-orb-2 { animation: ac-wave-2 22s ease-in-out infinite; }
+body.bg-waves .ac-dash-orb-3 { animation: ac-wave-1 26s ease-in-out infinite reverse; }
+
+/* ─── Effect: Dots ─── */
+body.bg-dots {
+  background-color: var(--background) !important;
+  background-image:
+    radial-gradient(circle, oklch(0.80 0.04 var(--brand-hue, 264) / 0.35) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
+  background-position: 0 0;
+}
+
+/* ─── Effect: Mesh (default orbs — just make them use CSS vars) ─── */
+body.bg-mesh .ac-dash-orb-1 { background: radial-gradient(circle, var(--orb1-color, oklch(0.6 0.2 264 / 0.7)), transparent 68%); }
+body.bg-mesh .ac-dash-orb-2 { background: radial-gradient(circle, var(--orb2-color, oklch(0.66 0.17 200 / 0.55)), transparent 68%); }
+body.bg-mesh .ac-dash-orb-3 { background: radial-gradient(circle, var(--orb3-color, oklch(0.58 0.19 295 / 0.48)), transparent 70%); }
+body.bg-mesh .ac-dash-orb-4 { background: radial-gradient(circle, var(--orb4-color, oklch(0.68 0.16 20 / 0.32)), transparent 70%); }
+
+/* ─── Effect: Minimal (no bg effects) ─── */
+body.bg-minimal {
+  background-image: none !important;
+  background-color: var(--background) !important;
+}
+body.bg-minimal .ac-dash-bg::before,
+body.bg-minimal .ac-dash-orb { display: none; }
+
+/* ═════════════════════════════════════════════════════════════
+   SATURATION CONTROL
+   Applied as a filter on the body bg only (keeps text crisp).
+═════════════════════════════════════════════════════════════ */
+body.saturation-low  { filter: saturate(0.5); }
+body.saturation-mid  { filter: saturate(0.75); }
+body.saturation-high { filter: saturate(1.25); }
+body.saturation-max  { filter: saturate(1.5); }
+
+/* ═════════════════════════════════════════════════════════════
+   HOVER EFFECTS TOGGLE
+   Applied via body class — disables expensive hover transforms.
+═════════════════════════════════════════════════════════════ */
+body.hover-off .ac-lift,
+body.hover-off .ac-sheen,
+body.hover-off .ac-spotlight,
+body.hover-off .ac-tilt-card {
+  transform: none !important;
+  transition: none !important;
+}
+body.hover-off .ac-sheen::after { display: none !important; }
+body.hover-off .ac-spotlight::before { display: none !important; }
+
+/* Enable hover-on (default — all effects active) */
+body.hover-on .ac-lift,
+body.hover-on .ac-sheen,
+body.hover-on .ac-spotlight,
+body.hover-on .ac-tilt-card {
+  /* defaults from earlier — restored */
+}
+
+/* ─── Dashboard orb colours via theme vars ─── */
+.ac-dash-orb-1 { background: radial-gradient(circle, var(--orb1-color, oklch(0.6 0.2 264 / 0.7)), transparent 68%); }
+.ac-dash-orb-2 { background: radial-gradient(circle, var(--orb2-color, oklch(0.66 0.17 200 / 0.55)), transparent 68%); }
+.ac-dash-orb-3 { background: radial-gradient(circle, var(--orb3-color, oklch(0.58 0.19 295 / 0.48)), transparent 70%); }
+.ac-dash-orb-4 { background: radial-gradient(circle, var(--orb4-color, oklch(0.68 0.16 20 / 0.32)), transparent 70%); }
+
+/* ═════════════════════════════════════════════════════════════
+   SLIDING NAV INDICATOR
+═════════════════════════════════════════════════════════════ */
+.nex-nav-track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+.nex-nav-indicator {
+  position: absolute;
+  height: var(--nav-h, 40px);
+  border-radius: 10px;
+  background: oklch(var(--nav-bg, 0.30 0.025 264) / 0.9);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.08), 0 2px 8px oklch(0 0 0 / 0.3);
+  transition: top 0.32s cubic-bezier(0.22, 1, 0.36, 1), height 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+.nex-nav-track > * { position: relative; z-index: 1; }
+
+/* ═════════════════════════════════════════════════════════════
+   NEXORA DIALOG OVERLAY
+═════════════════════════════════════════════════════════════ */
+.nex-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: oklch(0 0 0 / 0.70);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.nex-dialog {
+  position: relative;
+  border-radius: 1.5rem;
+  background: oklch(0.18 0.02 264 / 0.85);
+  border: 1px solid oklch(0.80 0.09 264 / 0.25);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.08),
+    0 32px 80px oklch(0 0 0 / 0.6),
+    0 0 0 1px oklch(1 0 0 / 0.04);
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.nex-dialog::-webkit-scrollbar { width: 6px; }
+.nex-dialog::-webkit-scrollbar-track { background: transparent; }
+.nex-dialog::-webkit-scrollbar-thumb { background: oklch(0.80 0.09 264 / 0.3); border-radius: 3px; }
+
+/* ═════════════════════════════════════════════════════════════
+   THEME SWATCH BUTTONS (in settings)
+═════════════════════════════════════════════════════════════ */
+.nex-swatch {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid oklch(0.80 0.09 264 / 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), border-color 0.22s ease, box-shadow 0.22s ease;
+  flex-shrink: 0;
+}
+.nex-swatch:hover {
+  transform: scale(1.1);
+  border-color: oklch(0.80 0.09 264 / 0.5);
+  box-shadow: 0 0 16px oklch(0.60 0.16 264 / 0.3);
+}
+.nex-swatch.active {
+  border-color: oklch(1 0 0 / 0.8);
+  box-shadow: 0 0 0 3px oklch(0.60 0.16 264 / 0.5), 0 0 20px oklch(0.60 0.16 264 / 0.25);
+  transform: scale(1.05);
+}
+.nex-swatch-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: conic-gradient(from 180deg, var(--swatch-a) 0deg 180deg, var(--swatch-b) 180deg 360deg);
+}
+
+/* ═════════════════════════════════════════════════════════════
+   SLIDER (SATURATION / EFFECTS INTENSITY)
+═════════════════════════════════════════════════════════════ */
+.nex-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: oklch(0.30 0.03 264 / 0.5);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.nex-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: oklch(0.72 0.18 264);
+  border: 2px solid oklch(1 0 0 / 0.6);
+  box-shadow: 0 2px 8px oklch(0 0 0 / 0.4);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s ease;
+}
+.nex-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px oklch(0.72 0.18 264 / 0.5);
+}
+.nex-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: oklch(0.72 0.18 264);
+  border: 2px solid oklch(1 0 0 / 0.6);
+  box-shadow: 0 2px 8px oklch(0 0 0 / 0.4);
+  cursor: pointer;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   TOGGLE SWITCH (modern pill)
+═════════════════════════════════════════════════════════════ */
+.nex-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: oklch(0.30 0.04 264 / 0.5);
+  border: 1px solid oklch(0.80 0.09 264 / 0.15);
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  flex-shrink: 0;
+}
+.nex-toggle.on {
+  background: oklch(0.65 0.18 264);
+  border-color: oklch(0.72 0.20 264 / 0.5);
+  box-shadow: 0 0 12px oklch(0.65 0.18 264 / 0.35);
+}
+.nex-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: oklch(0.97 0.01 264);
+  box-shadow: 0 1px 4px oklch(0 0 0 / 0.4);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nex-toggle.on .nex-toggle-knob {
+  transform: translateX(20px);
+  background: oklch(1 0 0);
+}
+
+/* ═════════════════════════════════════════════════════════════
+   SETTINGS PANEL THEME SECTION
+═════════════════════════════════════════════════════════════ */
+.nex-theme-section {
+  border-radius: 1.25rem;
+  background: oklch(0.22 0.02 264 / 0.4);
+  border: 1px solid oklch(0.80 0.09 264 / 0.12);
+  padding: 1.5rem;
+}
+.nex-effect-card {
+  border-radius: 1rem;
+  border: 1px solid oklch(0.80 0.09 264 / 0.15);
+  background: oklch(0.20 0.02 264 / 0.35);
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, transform 0.22s cubic-bezier(0.22,1,0.36,1);
+}
+.nex-effect-card:hover {
+  border-color: oklch(0.72 0.18 264 / 0.4);
+  background: oklch(0.24 0.03 264 / 0.45);
+  box-shadow: 0 4px 20px oklch(0 0 0 / 0.25);
+}
+.nex-effect-card.active {
+  border-color: oklch(0.72 0.18 264 / 0.6);
+  background: oklch(0.26 0.035 264 / 0.55);
+  box-shadow: 0 0 16px oklch(0.65 0.18 264 / 0.18), inset 0 1px 0 oklch(1 0 0 / 0.08);
+  transform: scale(1.02);
+}
+
+.ac-dash-root {
+  /* Translucent, gently tinted surfaces so backdrop-blur reads as glass */
+  --card:            oklch(0.27 0.02 215 / 0.55);
+  --card-foreground: oklch(0.985 0.002 215);
+  --popover:         oklch(0.22 0.02 215 / 0.9);
+  --secondary:       oklch(0.30 0.022 215 / 0.5);
+  --muted:           oklch(0.26 0.016 215 / 0.42);
+  --accent:          oklch(0.38 0.06 215 / 0.55);
+
+  --sidebar:        oklch(0.20 0.015 215 / 0.55);
+  --sidebar-accent: oklch(0.30 0.025 215 / 0.6);
+
+  /* Brighter hairline glass edges with more color in them */
+  --border:         oklch(0.80 0.09 215 / 0.22);
+  --input:          oklch(0.80 0.09 215 / 0.24);
+  --sidebar-border: oklch(0.80 0.09 215 / 0.18);
+
+  --primary:        oklch(0.65 0.16 215);
+  --ring:           oklch(0.65 0.16 215 / 0.55);
+}
+.light .ac-dash-root {
+  --card:      oklch(1 0 0 / 0.55);
+  --popover:   oklch(1 0 0 / 0.9);
+  --secondary: oklch(0.95 0.008 215 / 0.55);
+  --muted:     oklch(0.955 0.005 215 / 0.5);
+  --sidebar:   oklch(0.99 0.004 215 / 0.55);
+  --border:         oklch(0.3 0.04 215 / 0.14);
+  --input:          oklch(0.3 0.04 215 / 0.16);
+  --sidebar-border: oklch(0.3 0.04 215 / 0.1);
+}
+
+/* Frost every translucent surface in the dashboard */
+.ac-dash-root [class*="bg-card"],
+.ac-dash-root [class*="bg-sidebar"],
+.ac-dash-root [class*="bg-secondary"],
+.ac-dash-root [class*="bg-muted"],
+.ac-dash-root [class*="bg-popover"],
+.ac-dash-root [class*="bg-background/"],
+.ac-dash-root aside {
+  -webkit-backdrop-filter: blur(22px) saturate(175%);
+  backdrop-filter: blur(22px) saturate(175%);
+}
+
+/* Glass depth + crisp inner light edge on the larger rounded panels.
+   Inline box-shadows on bespoke cards still win, so they keep their look. */
+.ac-dash-root [class*="rounded-2xl"][class*="bg-"],
+.ac-dash-root [class*="rounded-3xl"][class*="bg-"],
+.ac-dash-root aside {
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.07),
+    0 14px 40px -30px oklch(0.3 0.1 215 / 0.4);
+}
+
+/* Cleaner, larger, more breathable surfaces — rounder corners + more padding */
+.ac-dash-root [class*="rounded-2xl"] {
+  border-radius: 1.35rem;
+}
+.ac-dash-root [class*="rounded-3xl"] {
+  border-radius: 1.75rem;
+}
+.ac-dash-root [class*="rounded-2xl"][class*="p-4"],
+.ac-dash-root [class*="rounded-2xl"][class*="p-5"],
+.ac-dash-root [class*="rounded-3xl"][class*="p-4"],
+.ac-dash-root [class*="rounded-3xl"][class*="p-5"],
+.ac-dash-root [class*="rounded-3xl"][class*="p-6"] {
+  padding: 1.25rem;
+}
+
+/* More air between grid panels only (keeps small flex rows intact) */
+.ac-dash-root [class*="grid"][class*="gap-4"] {
+  gap: 1rem;
+}
+.ac-dash-root [class*="grid"][class*="gap-6"] {
+  gap: 1.5rem;
+}
+
+/* The sidebar gets a soft vertical sheen so the glass feels lit from the left */
+.ac-dash-root aside {
+  background-image: linear-gradient(
+    180deg,
+    oklch(1 0 0 / 0.04),
+    transparent 28%
+  );
+}
+
+/* ─── Ambient orb field behind the glass — richer, more colorful ─── */
+.ac-dash-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    65% 45% at 50% -8%,
+    oklch(0.55 0.16 264 / 0.28),
+    transparent 72%
+  );
+}
+.ac-dash-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(88px);
+  opacity: 0.6;
+  will-change: transform;
+}
+.ac-dash-orb-1 {
+  top: -12%;
+  left: 6%;
+  width: 44vw;
+  height: 44vw;
+  max-width: 640px;
+  max-height: 640px;
+  background: radial-gradient(circle, oklch(0.6 0.2 264 / 0.7), transparent 68%);
+  animation: ac-mesh-drift-1 26s ease-in-out infinite;
+}
+.ac-dash-orb-2 {
+  top: 14%;
+  right: 0%;
+  width: 38vw;
+  height: 38vw;
+  max-width: 560px;
+  max-height: 560px;
+  background: radial-gradient(circle, oklch(0.66 0.17 200 / 0.55), transparent 68%);
+  animation: ac-mesh-drift-2 31s ease-in-out infinite;
+}
+.ac-dash-orb-3 {
+  bottom: -14%;
+  left: 30%;
+  width: 48vw;
+  height: 48vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, oklch(0.58 0.19 295 / 0.48), transparent 70%);
+  animation: ac-mesh-drift-3 35s ease-in-out infinite;
+}
+/* Extra warm accent for a livelier, less monochrome field */
+.ac-dash-orb-4 {
+  top: 46%;
+  left: -6%;
+  width: 34vw;
+  height: 34vw;
+  max-width: 480px;
+  max-height: 480px;
+  background: radial-gradient(circle, oklch(0.68 0.16 20 / 0.32), transparent 70%);
+  animation: ac-mesh-drift-2 38s ease-in-out infinite reverse;
+}
+.light .ac-dash-orb { opacity: 0.42; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-dash-orb { animation: none !important; }
+}
+
+/* ═════════════════════════════════════════════════════════════
+   NEXORA BRAND MARK
+═════════════════════════════════════════════════════════════ */
+.nex-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid oklch(0.80 0.09 264 / 0.25);
+  background: linear-gradient(135deg, oklch(0.40 0.06 264 / 0.6), oklch(0.30 0.04 295 / 0.5));
+  box-shadow: 0 0 14px oklch(0.55 0.16 264 / 0.25), inset 0 1px 0 oklch(1 0 0 / 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.nex-brand-mark:hover {
+  box-shadow: 0 0 22px oklch(0.65 0.18 264 / 0.40), inset 0 1px 0 oklch(1 0 0 / 0.1);
+  transform: scale(1.06);
+}
+
+/* ═════════════════════════════════════════════════════════════
+   NEXORA NAV ITEMS
+   Placed AFTER .ac-dash-root so these direct property declarations
+   always win over the CSS variable cascade.
+═════════════════════════════════════════════════════════════ */
+.nex-nav-item {
+  color: oklch(0.90 0.02 264) !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+.nex-nav-item-idle:hover {
+  background: oklch(0.30 0.04 264 / 0.50) !important;
+  border-color: oklch(0.72 0.18 264 / 0.30) !important;
+  box-shadow: 0 2px 12px oklch(0 0 0 / 0.3), 0 0 0 1px oklch(0.60 0.16 264 / 0.15) !important;
+  transform: translateX(3px);
+  color: oklch(0.98 0.01 264) !important;
+}
+.nex-nav-item-active {
+  background: oklch(0.38 0.07 264 / 0.80) !important;
+  border-color: oklch(0.72 0.18 264 / 0.40) !important;
+  color: oklch(1 0.01 264) !important;
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.15),
+    0 4px 16px oklch(0.30 0.12 264 / 0.40),
+    0 0 0 1px oklch(0.72 0.18 264 / 0.20) !important;
+}
+
+/* ─── Sliding nav indicator (positioned absolutely inside nex-nav-track) ─── */
+.nex-nav-indicator {
+  position: absolute;
+  border-radius: 10px;
+  background: oklch(0.42 0.08 264 / 0.90);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.12),
+    0 2px 8px oklch(0 0 0 / 0.35),
+    0 0 20px oklch(0.55 0.16 264 / 0.30);
+  transition: top 0.32s cubic-bezier(0.22, 1, 0.36, 1), height 0.32s cubic-bezier(0.22, 1, 0.36, 1), width 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+.nex-nav-track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nex-nav-track > * { position: relative; z-index: 1; }
+
+/* ─── Brand mark inside dark sidebar: use violet glow instead of default tile ─── */
+.ac-dash-root .nex-brand-mark {
+  background: linear-gradient(135deg, oklch(0.38 0.06 264 / 0.80), oklch(0.50 0.08 295 / 0.60)) !important;
+  border-color: oklch(0.72 0.18 264 / 0.35) !important;
+  box-shadow: 0 0 16px oklch(0.55 0.16 264 / 0.40), inset 0 1px 0 oklch(1 0 0 / 0.15) !important;
+}

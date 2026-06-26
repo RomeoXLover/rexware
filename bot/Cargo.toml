@@ -1,0 +1,67 @@
+[package]
+name = "feather-bot"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# packet-event DISABILITATA: di default azalea emette un Event per OGNI pacchetto
+# ricevuto. Su server affollati (Hypixel) e' un flood che riempie il canale
+# eventi ("Event channel has more than 10,000 items") e manda il GameTick in
+# ritardo. Non usiamo Event::Packet, quindi la disattiviamo e teniamo solo le
+# altre feature di default (log, online-mode, serde).
+azalea = { version = "0.15", default-features = false, features = ["log", "online-mode", "serde"] }
+azalea-auth = "0.15"
+tokio = { version = "1", features = ["full"] }
+tokio-socks = "0.5"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+regex = "1"
+rand = "0.8"
+# reqwest DEVE essere 0.13: azalea-auth 0.15.1 usa reqwest 0.13.4 e le sue
+# funzioni (get_minecraft_token, get_profile) accettano un reqwest::Client 0.13.
+# Verificato dal compilatore: "expected reqwest-0.13.4, found reqwest-0.12.28".
+reqwest = { version = "0.13", features = ["json", "socks"] }
+# Stessa major di azalea-protocol (^0.8.0): cargo unifica la versione, quindi
+# il UserKey che costruiamo e' lo stesso tipo atteso da Proxy::new.
+socks5-impl = "0.8"
+parking_lot = "0.12"
+anyhow = "1"
+chrono = "0.4"
+uuid = { version = "1", features = ["v4", "serde"] }
+# Per parsare l'access_token dal redirect di login.live.com (flusso SSID).
+# Gia' nel grafo via reqwest, quindi cargo lo unifica senza build extra.
+url = "2"
+
+# --- Pin dello snapshot crypto di azalea-auth 0.15.1 (MC 1.21.11) ---
+# azalea-auth 0.15.1 dipende da rsa rc.13 + crypto-bigint =0.7.0-rc.21, che fu
+# pubblicato contro uno snapshot di PRE-RELEASE di RustCrypto. Da allora quei
+# crate (der, pkcs8, spki, signature, sha2, ...) hanno rilasciato versioni
+# STABILI con API incompatibili. Senza lockfile cargo sceglie le stabili e la
+# compilazione di rsa/pkcs8 fallisce.
+# Queste versioni sono copiate ESATTAMENTE dal Cargo.lock della release 0.15.1
+# di azalea (commit cc43d14), l'unico snapshot coerente che compila.
+# Aggiunte come dipendenze dirette solo per bloccarne la versione transitiva.
+rsa = "=0.10.0-rc.13"
+crypto-bigint = "=0.7.0-rc.21"
+crypto-primes = "=0.7.0-pre.7"
+der = "=0.8.0-rc.10"
+pkcs1 = "=0.8.0-rc.4"
+pkcs8 = "=0.11.0-rc.10"
+spki = "=0.8.0-rc.4"
+signature = "=3.0.0-rc.8"
+digest = "=0.11.0-rc.11"
+sha2 = "=0.11.0-rc.5"
+sha1 = "=0.11.0-rc.5"
+const-oid = "=0.10.2"
+rand_core = "=0.10.0-rc-5"
+
+# NB: profilo pensato per buildare su VPS piccoli (2-4 GB RAM).
+# `lto = true` (fat) + `codegen-units = 1` facevano esplodere la RAM al link
+# (azalea+bevy = grafo enorme -> 8-16+ GB) mandando in OOM l'intero server.
+# `lto = "thin"` da' ~95% del beneficio con una frazione della memoria, e
+# codegen-units piu' alti spezzano il lavoro in unita' piccole. Per un bot la
+# differenza di performance runtime e' trascurabile.
+[profile.release]
+opt-level = 2
+lto = "thin"
+codegen-units = 16

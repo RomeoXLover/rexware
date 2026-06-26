@@ -1,0 +1,165 @@
+# ---------------------------------------------------------------------------
+# RexWare full stack.
+#
+#   db          — PostgreSQL. Shared by `web` and `discord-bot`. Internal-only.
+#   web         — the TanStack Start site + admin + API.
+#                 Orchestrates per-run bot containers through the Docker socket.
+#   discord-bot — long-running Discord gateway process (separate container).
+#   bot         — build-only image that `web` launches one-container-per-run.
+#
+# Manual deploy:
+#   cp docker/.env.example .env   # fill in secrets + POSTGRES_PASSWORD
+#   docker compose build          # builds web + the per-run bot image
+#   docker compose up -d          # starts db + web + discord-bot
+#
+# TLS + the public reverse proxy are handled by the nginx ALREADY on this VPS
+# (it proxies to 127.0.0.1:${APP_PORT}). The stack exposes nothing publicly.
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Networks
+# ---------------------------------------------------------------------------
+# A named external-facing network so per-run bot containers can reach the
+# `web` service by DNS name (http://web:3000) without touching the public
+# internet. `name` freezes the Docker network name independently of the
+# compose project name (which varies with the folder / `-p` flag), so
+# RUNNER_NETWORK never goes stale.
+# ---------------------------------------------------------------------------
+networks:
+  app-net:
+    name: beam-bot-hub_default
+
+# ---------------------------------------------------------------------------
+# Services
+# ---------------------------------------------------------------------------
+services:
+  # PostgreSQL — shared by `web` and `discord-bot`. Only reachable on the
+  # internal compose network; never exposed to the host or internet.
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-rexware}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-rexware}
+    volumes:
+      - rexware_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rexware} -d ${POSTGRES_DB:-rexware}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - app-net
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rexware/web:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      # Loopback only. The HOST nginx reverse-proxies to this; nothing from
+      # the stack is exposed publicly. Override the host port with APP_PORT.
+      - "127.0.0.1:${APP_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      # Running behind a reverse proxy: trust X-Forwarded-* / CF headers.
+      TRUST_PROXY: "1"
+      DATABASE_URL: postgres://${POSTGRES_USER:-rexware}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-rexware}
+      # Docker orchestration
+      DOCKER_SOCKET: /var/run/docker.sock
+      DOCKER_PROJECT_LABEL: beam-bot-hub
+      BOT_IMAGE: rexware/bot:latest
+      MC_BOT_IMAGE: rexware/mcbot:latest
+      BOT_STATE_VOLUME: rexware_bot_state
+      # The bot containers POST status here. They join the compose network so the
+      # "web" service DNS name resolves internally —
+      # without it they land on the default bridge where "web" is unknown.
+      RUNNER_CALLBACK_URL: http://web:3000/api/runner/callback
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
+      APP_BASE_URL: ${APP_BASE_URL}
+      # App secrets (provide via a .env file next to this compose file)
+      AUTH_SECRET: ${AUTH_SECRET}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET}
+      DISCORD_REDIRECT_URI: ${DISCORD_REDIRECT_URI}
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID}
+      DISCORD_GLOBAL_CHAT_CHANNEL_ID: ${DISCORD_GLOBAL_CHAT_CHANNEL_ID}
+      CRYPTAPI_LTC_ADDRESS: ${CRYPTAPI_LTC_ADDRESS}
+      CRYPTAPI_BTC_ADDRESS: ${CRYPTAPI_BTC_ADDRESS}
+      CRYPTAPI_CALLBACK_SECRET: ${CRYPTAPI_CALLBACK_SECRET}
+      # Anti-VPN IP reputation provider (optional). e.g. VPN_PROVIDER=proxycheck
+      VPN_PROVIDER: ${VPN_PROVIDER:-}
+      VPN_API_KEY: ${VPN_API_KEY:-}
+    volumes:
+      # Lets the site create/stop/inspect bot containers.
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - app-net
+    # NOTE: no `depends_on: bot`. The bot is a build-only image (see its
+    # profile below) that `web` launches per-run via the Docker socket — it is
+    # not a long-running service, so it must not be a startup dependency.
+
+  # Discord bot — long-running gateway process. It is NOT part of the Nitro
+  # web build, so it runs as its own container from the same image via tsx.
+  # It shares the Postgres database with `web` (they communicate through the
+  # dm_queue table) and must be the ONLY place this token logs in.
+  discord-bot:
+    image: rexware/web:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      web:
+        condition: service_started
+    command: ["npx", "tsx", "src/bot/index.ts"]
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://${POSTGRES_USER:-rexware}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-rexware}
+      APP_BASE_URL: ${APP_BASE_URL}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID}
+      DISCORD_TICKETS_CATEGORY: ${DISCORD_TICKETS_CATEGORY}
+      DISCORD_SUPPORT_ROLE_ID: ${DISCORD_SUPPORT_ROLE_ID}
+      DISCORD_WELCOME_CHANNEL_ID: ${DISCORD_WELCOME_CHANNEL_ID}
+      DISCORD_REVIEWS_CHANNEL_ID: ${DISCORD_REVIEWS_CHANNEL_ID}
+      DISCORD_GLOBAL_CHAT_CHANNEL_ID: ${DISCORD_GLOBAL_CHAT_CHANNEL_ID}
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
+      RUNNER_CALLBACK_URL: http://web:3000
+    networks:
+      - app-net
+
+  # Build-only: produces rexware/bot:latest. `web` launches containers from it.
+  bot:
+    build:
+      context: ./docker/bot
+      dockerfile: Dockerfile
+    image: rexware/bot:latest
+    # Never run on its own — it's a per-run image launched by the site.
+    command: ["--help"]
+    restart: "no"
+    profiles:
+      - build-only
+
+  # Build-only: produces rexware/mcbot:latest — the Rust Minecraft beam bot
+  # (`feather-bot`). `web` launches one container per deployed bot from this
+  # image, injecting the per-bot config via the BOT_CONFIG_JSON env var.
+  mcbot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    image: rexware/mcbot:latest
+    # Never run on its own — it's a per-bot image launched by the site.
+    restart: "no"
+    profiles:
+      - build-only
+
+volumes:
+  rexware_pgdata:
+  rexware_bot_state:

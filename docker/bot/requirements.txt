@@ -1,0 +1,6 @@
+# Headless bot runner dependencies.
+# NOTE: CustomTkinter is intentionally NOT included — the container runs the
+# GUI-less engine (bot_runner.py), so no desktop/Tk dependencies are needed.
+discord.py-self>=2.1.0
+aiohttp>=3.9
+PySocks>=1.7.1

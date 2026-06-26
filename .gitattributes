@@ -1,0 +1,12 @@
+# Force LF on shell scripts and config so they run on Linux even if the repo
+# is cloned/edited on Windows (CRLF breaks bash/dash with $'\r' errors).
+*.sh         text eol=lf
+setup.sh     text eol=lf
+Dockerfile   text eol=lf
+*.conf       text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+.env.example text eol=lf
+
+# Let Git normalize line endings automatically for everything else.
+* text=auto

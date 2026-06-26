@@ -1,0 +1,9 @@
+# Non mandare al build context roba inutile/pesante o sensibile.
+target/
+feather_config.json
+*_config.json
+.git/
+.gitignore
+Dockerfile
+docker-compose.yml
+*.md

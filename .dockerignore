@@ -1,0 +1,15 @@
+node_modules
+dist
+.output
+.tanstack
+.vercel
+.git
+data
+*.log
+*.png
+__pycache__
+main.py
+docker/bot/state
+docker/bot/config
+.env
+.env.*
